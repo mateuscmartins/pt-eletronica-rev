@@ -1,0 +1,82 @@
+.container{
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 20px;
+    margin: 30px auto;
+}
+
+section{
+    margin-bottom: 10px;
+}
+
+.titulo-bloco-conteudo{
+    border: 1px solid #000;
+    padding: 5px;
+    background-color: #9BA894;
+}
+
+.bloco-conteudo{
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    padding: 0 5px 0 5px;
+    background-color: #DBD7D7;
+}
+
+.linha-conteudo{
+    margin: 10px 0 10px 0;
+}
+
+.linha-conteudo-pequena{
+    width: 40%;
+}
+
+.linha-conteudo-media{
+    width: 70%;
+}
+
+.duas-colunas{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.duas-colunas-profissionais{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+#autor-pt {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.legenda-inline{
+    display: inline-block;
+}
+
+input[type=text]{
+    width: 80%;
+    height: 40px;
+    color: #333;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 0 8px;
+}
+
+input[type=date]{
+    height: 40px;
+    color: #333;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 0 8px;
+}
+
+textarea {
+    width: 80%;
+    height: 120px;
+    color: #333;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 8px 8px;
+    resize: none;
+}

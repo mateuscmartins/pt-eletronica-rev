@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Permissão de Trabalho</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/novaPT/styles.css">
+</head>
+<body>
+
+    <div class="container">
+       <h1>Criar Permissão de Trabalho </h1>
+       <section id="autor-pt">
+            <p>Autor: <span> Fulano da Silva</span></p>
+            <p>Matrícula: <span> 123456</span></p>
+            <p>Função: <span>Técnico de segurança no trabalho</span></p>
+       </section>
+
+       <section id="ordem-servico">
+            <div class="titulo-bloco-conteudo">
+                <h2>Ordem de serviço</h2>
+            </div>
+            
+            <div class="bloco-conteudo duas-colunas">
+
+                <div class="conteudo-esquerda">
+
+                    <div class="linha-conteudo">
+                        <h3>Número da Ordem de Serviço</h3>
+                        <input type="text" name="ordem_servico" placeholder='Nº da Ordem de Serviço' required></input>  
+                    </div>
+                    
+                    <div class="linha-conteudo">
+                        <h3>Descrição da Ordem de Serviço</h3>
+                        <textarea  name="descricao" placeholder='Descreva o serviço conforme sistema de manutenção' required></textarea>
+                    </div>
+        
+                </div>
+
+                <div class="conteudo-direita">
+
+                    <div class="bloco-conteudo-interno duas-colunas">
+
+                        <div class="linha-conteudo">
+                            <div class="conteudo-esquerda">
+                                <h3>Data de Início Previsto</h3>
+                                <input type="date" name="data_inicio_previsto">
+                            </div>
+                        </div> 
+
+                        <div class="linha-conteudo">
+                            <div class="conteudo-direita">
+                                <h3>Data de Término Previsto</h3>
+                                <input type="date" name="data_termino_previsto">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <h3>Local de Execução do Serviço</h3>
+                        <input type="text" name="local_servico" placeholder='Insira a localização de execução do serviço' required></input>
+                    </div>
+                
+                    <div class="linha-conteudo">
+                        <h3 class="legenda-inline">Área restrita: </h3>
+                        <span>
+                            <label>
+                                <input type="radio" name="area_restrita" value="true">
+                                Sim
+                            </label>
+                            <label>
+                                <input type="radio" name="area_restrita" value="false">
+                                Não
+                            </label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="profissionais">
+
+            <div class="titulo-bloco-conteudo">
+                <h2>Profissionais autorizados para a execução do serviço</h2>
+            </div>
+
+            <div class="bloco-conteudo">
+                
+                <h3>ENCARREGADO</h3>
+                
+                <div class="duas-colunas-profissionais">
+                    <div class="linha-conteudo">
+                        <h3>Matrícula: </h3>
+                        <input type="text" name="matricula" placeholder='Matrícula do encarregado' required></input> 
+                    </div>
+    
+                    <div class="linha-conteudo">
+                        <h3>Nome: </h3>
+                        <input  type="text" name="nome" placeholder='Nome do encarregado' required></input> 
+                    </div>
+                </div>
+
+                <hr></hr>
+
+                <h3>PROFISSIONAIS</h3>
+                
+                <div class="duas-colunas-profissionais">
+                    <div class="linha-conteudo">
+                        <h3>Matrícula: </h3>
+                        <input type="text" name="matricula" placeholder='Matrícula do profissional' required></input> 
+                    </div>
+    
+                    <div class="linha-conteudo">
+                        <h3>Nome: </h3>
+                        <input  type="text" name="nome" placeholder='Nome do profissional' required></input> 
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+    </div>
+
+
+
+
+
+    <label>
+        <input type="checkbox" name="example" value="1">
+        Example Checkbox
+    </label>      
+</body>
+</html>

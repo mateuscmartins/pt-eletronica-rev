@@ -1,11 +1,19 @@
+const { buscarUsuario } = require('../models/login');
+
 const loginView = (req, res)=>{
     res.render('login',{});
 };
 
 
 const loginSessao = (req, res)=>{
-    const { usuario, senha } = req.body;
-    console.log(usuario, senha);
+    const { matricula, senha } = req.body;
+    const usuarioSessao = buscarUsuario(matricula);
+
+    if(usuarioSessao.matricula === matricula && usuarioSessao.senha === senha){
+        res.send(usuarioSessao);
+    }else{
+        res.send({mensagem: "Usuário inexistente ou senha errada."})
+    }
 }
 
 
