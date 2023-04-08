@@ -5,6 +5,7 @@
     <title>Nova Permissão de Trabalho</title>
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/novaPT/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -70,7 +71,7 @@
                                 Sim
                             </label>
                             <label>
-                                <input type="radio" name="area_restrita" value="false">
+                                <input type="radio" name="area_restrita" value="false" checked>
                                 Não
                             </label>
                         </span>
@@ -82,7 +83,7 @@
         <section class="profissionais">
 
             <div class="titulo-bloco-conteudo">
-                <h2>Profissionais autorizados para a execução do serviço</h2>
+                <h2>Equipe autorizada para a execução do serviço</h2>
             </div>
 
             <div class="bloco-conteudo">
@@ -104,28 +105,334 @@
                 <hr></hr>
 
                 <h3>PROFISSIONAIS</h3>
-                
-                <div class="duas-colunas-profissionais">
-                    <div class="linha-conteudo">
-                        <h3>Matrícula: </h3>
-                        <input type="text" name="matricula" placeholder='Matrícula do profissional' required></input> 
-                    </div>
-    
-                    <div class="linha-conteudo">
-                        <h3>Nome: </h3>
-                        <input  type="text" name="nome" placeholder='Nome do profissional' required></input> 
+                <div id="secao-profissionais">
+                    <div class="duas-colunas-profissionais">
+                        <div class="linha-conteudo">
+                            <h3>Matrícula: </h3>
+                            <input type="text" name="matricula" placeholder='Matrícula do profissional' required></input> 
+                        </div>
+        
+                        <div class="linha-conteudo">
+                            <h3>Nome: </h3>
+                            <input  type="text" name="nome" placeholder='Nome do profissional' required></input> 
+                        </div>
                     </div>
                 </div>
-
+                <button id="acrescenta-funcionario">Acrescentar funcionário</button>
             </div>
         </section>
 
+        <section class="riscos">
+            
+            <div class="titulo-bloco-conteudo">
+                <h2>Riscos envolvidos</h2>
+            </div>
 
-    </div>
+            <div class="bloco-conteudo duas-colunas">
+
+                <div class="conteudo-esquerda">
+
+                    <div class="linha-conteudo">
+                        <label for="altura">
+                            <input type="checkbox" name="riscos" value="altura"/> 
+                            Altura, telhados e/ou níveis elevados 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="demolicao-escavacao">
+                            <input type="checkbox" name="riscos" value="demolicao-escavacao"/> 
+                            Demolição e/ou Escavação
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="eletricidade">
+                            <input type="checkbox" name="riscos" value="eletricidade"/> 
+                            Eletricidade 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="gases-explosivos">
+                            <input type="checkbox" name="riscos" value="gases-explosivos"/> 
+                            Gases, explosivos e/ou líquidos inflamáveis 
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="conteudo-direita">
+
+                    <div class="linha-conteudo">
+                        <label for="local-confinado">
+                            <input type="checkbox" name="riscos" value="local-confinado"/> 
+                            Local confinado 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="movimentacao-guincho-plataforma">
+                            <input type="checkbox" name="riscos" value="movimentacao-guincho-plataforma"/> 
+                            Movimentação com uso de guincho e plataforma 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="trabalho-a-quente">
+                            <input type="checkbox" name="riscos" value="trabalho-a-quente"/> 
+                            Trabalho à quente 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="outro-risco">
+                            Outro:
+                            <input type="text" name="outro-risco"></input>
+                        </label>
+                    </div>
+
+                </div>
 
 
+            </div>
+
+        </section>
 
 
+        <section class="perigos">
+
+            <div class="titulo-bloco-conteudo">
+                <h2>Perigos potenciais</h2>
+            </div>
+
+            <div class="bloco-conteudo tres-colunas">
+                <div class="conteudo-esquerda">
+
+                    <div class="linha-conteudo">
+                        <label for="atropelamento">
+                            <input type="checkbox" name="perigos" value="atropelamento"/> 
+                            Atropelamento (Uso de veículo)
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="choque-eletrico">
+                            <input type="checkbox" name="perigos" value="choque-eletrico"/> 
+                            Choque elétrico 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="vapores-organicos">
+                            <input type="checkbox" name="perigos" value="vapores-organicos"/> 
+                            Concentração de vapores orgânicos (Incêncio e explosão) 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="contato-perigoso">
+                            <input type="checkbox" name="perigos" value="contato-perigoso"/> 
+                            Contato com ferramentas, equipamentos e peças com cantos vivos e rebarbas 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="produto-quimico">
+                            <input type="checkbox" name="perigos" value="produto-quimico"/> 
+                            Contato com produto químico 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="demolicao">
+                            <input type="checkbox" name="perigos" value="demolicao"/> 
+                            Demolição
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="detonacoes">
+                            <input type="checkbox" name="perigos" value="detonacoes"/> 
+                            Detonações
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="escavacao">
+                            <input type="checkbox" name="perigos" value="escavacao"/> 
+                            Escavação/Desmoronamento
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="explosoes">
+                            <input type="checkbox" name="perigos" value="explosoes"/> 
+                            Explosões
+                        </label>
+                    </div>
+                    
+                    <div class="linha-conteudo">
+                        <label for="terceiros">
+                            <input type="checkbox" name="perigos" value="terceiros"/> 
+                            Expor terceiros a perigos
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="fumos-metalicos">
+                            <input type="checkbox" name="perigos" value="fumos-metalicos"/> 
+                            Exposição a fumos metálicos
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="conteudo-centro">
+
+                    <div class="linha-conteudo">
+                        <label for="gases-vapores">
+                            <input type="checkbox" name="perigos" value="gases-vapores"/> 
+                            Exposição a gases e vapores
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="poeira">
+                            <input type="checkbox" name="perigos" value="poeira"/> 
+                            Exposição a poeiras
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="levantamento-transporte-peso">
+                            <input type="checkbox" name="perigos" value="levantamento-transporte-peso"/> 
+                            Levantamento/transporte de peso 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="equipamentos-guindar">
+                            <input type="checkbox" name="perigos" value="equipamentos-guindar"/> 
+                            Manuseio de equipamentos de guindar
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="produtos-inflamaveis">
+                            <input type="checkbox" name="perigos" value="produtos-inflamaveis"/> 
+                            Manuseio de produtos inflamáveis (fogo, explosões)
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="movimentacao-maquinas">
+                            <input type="checkbox" name="perigos" value="movimentacao-maquinas"/> 
+                            Movimentação de máquinas
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="piso-escorregadio">
+                            <input type="checkbox" name="perigos" value="piso-escorregadio"/> 
+                            Piso escorregadio 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="produtos-inflamaveis">
+                            <input type="checkbox" name="perigos" value="produtos-inflamaveis"/> 
+                            Produtos inflamáveis 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="projecao-particulas">
+                            <input type="checkbox" name="perigos" value="projecao-particulas"/> 
+                            Projeção de partículas 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="queda">
+                            <input type="checkbox" name="perigos" value="queda"/> 
+                            Queda / Diferença de Nível 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="queda-andaime">
+                            <input type="checkbox" name="perigos" value="queda-andaime"/> 
+                            Queda de andaime
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="queda-escada">
+                            <input type="checkbox" name="perigos" value="queda-escada"/> 
+                            Queda de escada
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="conteudo-direita">
+
+                    <div class="linha-conteudo">
+                        <label for="queda-objetos">
+                            <input type="checkbox" name="perigos" value="queda-objetos"/> 
+                            Queda de objetos em geral 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="queda-PTA">
+                            <input type="checkbox" name="perigos" value="queda-PTA"/> 
+                            Queda de PTA 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="radiacao">
+                            <input type="checkbox" name="perigos" value="radiacao"/> 
+                            Radiação não ionizante
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="ruido-excessivo">
+                            <input type="checkbox" name="perigos" value="ruido-excessivo"/> 
+                            Ruído excessivo 
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="trabalho-quente">
+                            <input type="checkbox" name="perigos" value="trabalho-quente"/> 
+                            Trabalho à quente
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="trabalho-quente-area-explosiva">
+                            <input type="checkbox" name="perigos" value="trabalho-quente-area-explosiva"/> 
+                            Trabalho à quente ou projeção de faíscas em áreas com risco de explosão
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="espaco-confinado">
+                            <input type="checkbox" name="perigos" value="espaco-confinado"/> 
+                            Trabalho em espaço confinado
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="trabalho-telhado">
+                            <input type="checkbox" name="perigos" value="trabalho-telhado"/> 
+                            Trabalho sobre telhado 
+                        </label>
+                    </div>   
 
                     <div class="linha-conteudo">
                         <label for="outro-perigo">
@@ -150,9 +457,143 @@
                 <div class="conteudo-esquerda">
 
                     <div class="linha-conteudo">
-                        <label for="atropelamento">
-                            <input type="checkbox" name="perigos" value="atropelamento"/> 
-                            Atropelamento (Uso de veículo)
+                        <label for="oculos-incolor">
+                            <input type="checkbox" name="equipamentos" value="oculos-incolor"/> 
+                            Óculos de segurança incolor
                         </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="oculos-escuro">
+                            <input type="checkbox" name="equipamentos" value="oculos-escuro"/> 
+                            Óculos de segurança com lente escura
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="capacete-eletricista">
+                            <input type="checkbox" name="equipamentos" value="capacete-eletricista"/> 
+                            Capacete para eletricista com jugular
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="protetor-facial">
+                            <input type="checkbox" name="equipamentos" value="protetor-facial"/> 
+                            Protetor facial - escudo rosto
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="mascara-soldador">
+                            <input type="checkbox" name="equipamentos" value="mascara-soldador"/> 
+                            Máscara de soldador - escudo
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="escudo-arco-eletrico">
+                            <input type="checkbox" name="equipamentos" value="escudo-arco-eletrico"/> 
+                            Escudo de proteção contra arco elétrico
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="protetor-auricular-plug">
+                            <input type="checkbox" name="equipamentos" value="protetor-auricular-plug"/> 
+                            Protetor auricular - Plug
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="protetor-auricular-concha">
+                            <input type="checkbox" name="equipamentos" value="protetor-auricular-concha"/> 
+                            Protetor auricular - Concha
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="capacete">
+                            <input type="checkbox" name="equipamentos" value="capacete"/> 
+                            Capacete
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="capacete-jugular">
+                            <input type="checkbox" name="equipamentos" value="capacete-jugular"/> 
+                            Capacete com jugular - Trabalho em altura
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="uniforme-eletricista">
+                            <input type="checkbox" name="equipamentos" value="uniforme-eletricista"/> 
+                            Uniforme para eletricista
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="respirador-poeiras">
+                            <input type="checkbox" name="equipamentos" value="respirador-poeiras"/> 
+                            Respirador para poeiras, névoas e fumos
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="respirador-vapores">
+                            <input type="checkbox" name="equipamentos" value="respirador-vapores"/> 
+                            Respirador para vapores orgânicos
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="respirador-acidos">
+                            <input type="checkbox" name="equipamentos" value="respirador-acidos"/> 
+                            Respirador para gases ácidos
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="respirador-filtro-combinado">
+                            <input type="checkbox" name="equipamentos" value="respirador-filtro-combinado"/> 
+                            Respirador com filtros combinados
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="cinto-paraquedista">
+                            <input type="checkbox" name="equipamentos" value="cinto-paraquedista"/> 
+                            Cinto tipo Paraquedista
+                        </label>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <label for="talabarte">
+                            <input type="checkbox" name="equipamentos" value="talabarte"/> 
+                            Talabarte Y ou 2 talabartes
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="conteudo-centro">
+                    
+                </div>
+
+                <div class="conteudo-direita">
+                    
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </div>     
+
+    <script src="/js/novaPT/scripts.js"></script>
+
 </body>
 </html>
