@@ -5,6 +5,10 @@
     margin: 30px auto;
 }
 
+h1{
+    margin-bottom: 30px;
+}
+
 section{
     margin-bottom: 30px;
 }
@@ -90,7 +94,7 @@ textarea {
     resize: none;
 }
 
-.riscos input[type=text], .perigos input[type=text]{
+.riscos input[type=text], .perigos input[type=text], .equipamentos input[type=text], .medidas-preventivas input[type=text]{
     border-radius: 0px;
     outline: 0;
     border-width: 0 0 2px;
@@ -100,7 +104,23 @@ textarea {
     width: 50%;
 }
 
-.riscos input[type=text]:focus, .perigos input[type=text]:focus{
+.riscos input[type=text]:focus, .perigos input[type=text]:focus, .equipamentos input[type=text]:focus, .medidas-preventivas input[type=text]:focus {
     border-color: #146C94;
     outline: 1px dotted #000
+}
+
+
+#acrescenta-funcionario{
+    width: 320px;
+    margin-bottom: 5px;
+}
+
+.botao-emissao{
+    width: 100%;
+}
+
+.botao-emissao button{
+    width: 320px;
+    display: block;
+    margin: auto;
 }
