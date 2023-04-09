@@ -13,7 +13,8 @@ const { loginView, loginSessao } = require('./controllers/loginController');
 
 //Importação dos métodos do controller de emissão de PT
 //  novaPTView - Tela do formulário
-const { novaPTView } = require('./controllers/novaPT');
+//  listaPT - Tela que exibe todas as PTs cadastradas no banco de dados
+const { novaPTView, listaPT } = require('./controllers/PT');
 
 
 //Instanciação do express
@@ -40,7 +41,12 @@ app.post("/", loginSessao);
 
 //Definição das rotas da tela de formulário de emissão de PT
 // GET - Carrega a página do formulário de emissão de PT
-app.get("/nova-pt", novaPTView)
+app.get("/nova-pt", novaPTView);
+
+
+
+//Definição da rota da tela que exibe PTs registradas no banco de dados
+app.get("/lista-pt", listaPT);
 
 app.listen(3000, ()=>{
     console.log("Servidor da web app rodando na porta 3000");

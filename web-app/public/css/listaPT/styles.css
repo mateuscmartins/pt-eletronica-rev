@@ -1,0 +1,38 @@
+h1{
+    margin-bottom: 30px;
+}
+
+.container ul{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+    list-style: none;
+}
+
+.container ul li{
+ border: 1px solid;
+ border-color: #000;
+ padding: 14px;
+ border-radius: 15px;
+ position: relative;
+}
+
+.container ul li h2{
+    margin-top: 0px;
+   }
+
+.container ul li p{
+    color: gray;
+}
+
+.container ul li a{
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    text-decoration: none;
+    color: #146c94;
+}
+
+.container ul li .status{
+    color: #19A7CE;
+}
