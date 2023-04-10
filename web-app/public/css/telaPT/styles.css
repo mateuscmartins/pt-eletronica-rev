@@ -117,3 +117,26 @@ textarea {
     display: block;
     margin: auto;
 }
+
+
+/* Estilizaçao específica da página de exibição da PT */
+
+.status{
+    color: #19A7CE;
+    font-weight: bold;
+}
+
+
+.tres-colunas-profissionais{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.tabela-profissionais{
+    width: 100%;
+    text-align: left;
+}
+
+
+.linha-conteudo p{
+    padding-right: 5px;
+}

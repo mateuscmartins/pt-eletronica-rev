@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Permissão de Trabalho</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/telaPT/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container">
+       <h1>Permissão de Trabalho: 0001 </h1>
+       
+       <section>
+        <p>Status: <span class='status'>Parcialmente aprovada</span></p>
+       </section>
+
+       <section id="autor-pt">
+            <p>Autor: <span> Fulano da Silva</span></p>
+            <p>Matrícula: <span> 123456</span></p>
+            <p>Função: <span>Técnico de segurança no trabalho</span></p>
+       </section>
+
+
+
+       <section id="ordem-servico">
+            <div class="titulo-bloco-conteudo">
+                <h2>Ordem de serviço</h2>
+            </div>
+            
+            <div class="bloco-conteudo duas-colunas">
+
+                <div class="conteudo-esquerda">
+
+                    <div class="linha-conteudo">
+                        <h3>Número da Ordem de Serviço</h3>
+                        <p>123456</p>  
+                    </div>
+                    
+                    <div class="linha-conteudo">
+                        <h3>Descrição da Ordem de Serviço</h3>
+                        <p>Substituir lâmpada no poste de entrada</p>
+                    </div>
+        
+                </div>
+
+                <div class="conteudo-direita">
+
+                    <div class="bloco-conteudo-interno duas-colunas">
+
+                        <div class="linha-conteudo">
+                            <div class="conteudo-esquerda">
+                                <h3>Data de Início Previsto</h3>
+                                <p>14/05/2023</p>
+                            </div>
+                        </div> 
+
+                        <div class="linha-conteudo">
+                            <div class="conteudo-direita">
+                                <h3>Data de Término Previsto</h3>
+                                <p>15/05/2023</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <h3>Local de Execução do Serviço</h3>
+                        <p>Entrada principal da Fundação</p>
+                    </div>
+                
+                    <div class="linha-conteudo">
+                        <h3 class="legenda-inline">Área restrita: </h3>
+                        <span>
+                            Não
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="profissionais">
+
+            <div class="titulo-bloco-conteudo">
+                <h2>Equipe autorizada para a execução do serviço</h2>
+            </div>
+
+            <div class="bloco-conteudo">
+                
+                <h3>ENCARREGADO</h3>
+                
+                <div class="tres-colunas-profissionais">
+                    <div class="linha-conteudo">
+                        <h3>Matrícula: </h3>
+                        <p>2022101010</p> 
+                    </div>
+    
+                    <div class="linha-conteudo">
+                        <h3>Nome: </h3>
+                        <p>Encarregado 1</p> 
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <h3>Empresa</h3>
+                        <p>XYZ Ltda.</p>
+                    </div>
+                </div>
+
+                <hr></hr>
+
+                <h3>PROFISSIONAIS</h3>
+                
+                <table class="tabela-profissionais">
+                    <tr>
+                        <th><h3>Matrícula</h3></th>
+                        <th><h3>Nome</h3></th>
+                        <th><h3>Função</h3></th>
+                        <th><h3>Anuência</h3></th>
+                        <th><h3>Empresa</h3></th>
+                    </tr>
+
+                    <tr>
+                        <td><p>2023963852</p></td>
+                        <td><p>Profissional 1</p></td>
+                        <td><p>Eletricista</p></td>
+                        <td><p>De acordo</p></td>
+                        <td><p>XYZ Ltda.</p></td>
+                    </tr>
+
+                    <tr>
+                        <td><p>2022568923</p></td>
+                        <td><p>Profissional 2</p></td>
+                        <td><p>Ajudante</p></td>
+                        <td><p style="color: red;">FALTA DE ACORDO</p></td>
+                        <td><p>XYZ Ltda.</p></td>
+                    </tr>
+
+                </table>
+
+            </div>
+        </section>
+
+        <section class="riscos">
+            
+            <div class="titulo-bloco-conteudo">
+                <h2>Riscos envolvidos</h2>
+            </div>
+
+            <div class="bloco-conteudo tres-colunas">
+                
+                <div class="linha-conteudo">
+                    <p>▶ Eletricidade</p>
+                </div>
+
+                <div class="linha-conteudo">
+                    <p>▶ Altura, telhados e/ou níveis elevados </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="perigos">
+
+            <div class="titulo-bloco-conteudo">
+                <h2>Perigos potenciais</h2>
+            </div>
+
+            <div class="bloco-conteudo tres-colunas">
+                
+                <div class="linha-conteudo">
+                    <p>▶ Choque elétrico</p>
+                </div>
+                
+                <div class="linha-conteudo">
+                    <p>▶ Contato com ferramentas, equipamentos e peças com cantos vivos e rebarbas</p>
+                </div>
+
+                <div class="linha-conteudo">
+                    <p>▶ Expor terceiros a perigos</p>
+                </div>
+
+                <div class="linha-conteudo">
+                    <p>▶ Queda / Diferença de Nível</p>
+                </div>
+
+                <div class="linha-conteudo">
+                    <p>▶ Queda de PTA</p>
+                </div>
+         
+            </div>
+
+        </section>
+
+        <section class="equipamentos">
+
+            <div class="titulo-bloco-conteudo">
+                <h2>Equipamentos de Proteção Individual/Coletivo Necessários</h2>
+            </div>
+
+            <div class="bloco-conteudo tres-colunas">
+
+                <div class="linha-conteudo">
+                    <p>▶ Capacete para eletricista com jugular</p>
+                </div>
+
+                <div class="linha-conteudo">
+                    <p>▶ Cinto tipo Paraquedista</p>
+                </div>
+
+                <div class="linha-conteudo">
+                    <p>▶ Conjunto de ferramentas isoladas</p>
+                </div>
+
+                <div class="linha-conteudo">
+                    <p>▶ Luva isolante Classe 0</p>
+                </div>
+
+                <div class="linha-conteudo">
+                    <p>▶ Óculos de segurança com lente escura</p>
+                </div>
+                
+                <div class="linha-conteudo">
+                    <p>▶ Sapato de eletricista</p>
+                </div>
+                
+                <div class="linha-conteudo">
+                    <p>▶ Uniforme para eletricista</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="medidas-preventivas">
+
+            <div class="titulo-bloco-conteudo">
+                <h2>Medidas Preventivas</h2>
+            </div>
+
+            <div class="bloco-conteudo tres-colunas">
+
+                <div class="linha-conteudo">
+                    <p>▶ Analisar o ambiente antes de iniciar o trabalho</p>
+                </div>
+
+                <div class="linha-conteudo">
+                    <p>▶ Atender NR-10</p>
+                </div>
+
+                <div class="linha-conteudo">
+                    <p>▶ Condutor/operador de veículo deve estar habilitado</p>
+                </div>
+                
+                <div class="linha-conteudo">
+                    <p>▶ Desenergizar as redes elétricas</p>
+                </div>
+                
+                <div class="linha-conteudo">
+                    <p>▶ Desenergizar rede elétrica, tubulações, etc. próximas ao andaime</p>
+                </div>
+                
+                <div class="linha-conteudo">
+                    <p>▶ Dirigir em velocidade adequada às condições da via</p>
+                </div>
+                 
+                <div class="linha-conteudo">
+                    <p>▶ Empregados treinados para trabalhos em altura</p>
+                </div>
+                
+                <div class="linha-conteudo">
+                    <p>▶ Trabalhador que realizará desligamento e/ou ligação da parte elétrica deve estar legalmente habilitado</p>
+                </div> 
+                 
+                <div class="linha-conteudo">
+                    <p>▶ Utilizar linha de vida</p>
+                </div>
+                 
+                <div class="linha-conteudo">
+                    <p>▶ Verificar se condições climáticas são favoráveis para trabalho em altura em área externa</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="botao-emissao">
+            <button type="submit">Emitir Permissão de Trabalho</button>
+        </div>
+
+    </div>     
+
+    <script src="/js/novaPT/scripts.js"></script>
+
+</body>
+</html>

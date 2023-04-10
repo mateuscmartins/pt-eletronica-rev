@@ -7,4 +7,8 @@ const listaPT = (req, res)=>{
     res.render('lista-pt', {})
 }
 
-module.exports = { novaPTView, listaPT };
+const exibirPT = (req, res)=>{
+    res.render('exibir-pt')
+}
+
+module.exports = { novaPTView, listaPT, exibirPT };
