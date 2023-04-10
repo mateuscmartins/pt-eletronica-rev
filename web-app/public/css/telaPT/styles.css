@@ -1,5 +1,6 @@
-h1{
-    margin-bottom: 30px;
+h2{
+    width: 90%;
+    float: left;
 }
 
 section{
@@ -11,6 +12,17 @@ section{
     padding: 5px;
     background-color: #9BA894;
 }
+
+.titulo-bloco-conteudo span{
+    display: inline-block;
+    color: #fff;
+    background-color: #146C94;
+    padding: 5px;
+    border: #000 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 50px;
+} 
 
 .bloco-conteudo{
     border-bottom: 1px solid #000;
@@ -116,6 +128,16 @@ textarea {
     width: 320px;
     display: block;
     margin: auto;
+    height: 40px;
+    color: #FFF;
+    background-color: #146C94;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 40px;
 }
 
 
@@ -135,7 +157,6 @@ textarea {
     width: 100%;
     text-align: left;
 }
-
 
 .linha-conteudo p{
     padding-right: 5px;
