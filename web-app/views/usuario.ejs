@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/usuarios/style.css">
+
+    <title>Novo Usuário</title>
+</head>
+<body>
+    
+    <div class="container">
+
+        <h1>Cadastrar novo usuário no sistema</h1>
+
+        <form action="">
+
+            <div class="linha-conteudo">
+                <h3>Matrícula: </h3>
+                <input type="text" name="matricula" placeholder='Matrícula do profissional' required></input> 
+            </div>
+
+            <div class="linha-conteudo">
+                <h3>Nome: </h3>
+                <input  type="text" name="nome" placeholder='Nome do profissional' required></input> 
+            </div>
+
+            <div class="linha-conteudo">
+                <h3>Função: </h3>
+                <input  type="text" name="funcao" placeholder='Função do profissional' required></input> 
+            </div>
+
+            <div class="linha-conteudo">
+                <h3>Empresa: </h3>
+                <input  type="text" name="empresa" placeholder='Empresa contratante' required></input> 
+            </div>
+
+            <div class="linha-conteudo">
+                <h3>Perfil: </h3>
+                <select name="perfil" required>
+                    <option>--- Escolha perfil do profissional ---</option>
+                    <option value="adm">Administrador de sistema</option>
+                    <option value="encarregado-manutencao">Encarregado de manutenção</option>
+                    <option value="fiscal">Fiscal de contrato</option>
+                    <option value="seguranca-trabalho">Profissional de segurança no trabalho</option>
+                    <option value="tecnico-manutencao">Técnico de manutenção</option>
+                </select> 
+            </div>
+
+            <div>
+                <button type="submit">Salvar dados do profissional</button>
+            </div>
+
+
+        </form>
+
+    </div>
+
+</body>
+</html>

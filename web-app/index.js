@@ -17,7 +17,7 @@ const { loginView, loginSessao } = require('./controllers/loginController');
 const { novaPTView, listaPT, exibirPT } = require('./controllers/PTController');
 
 
-const { listaUsuarios } = require('./controllers/usuariosController');
+const { listaUsuarios, exibirUsuario } = require('./controllers/usuariosController');
 
 //Instanciação do express
 const app = express();
@@ -54,7 +54,11 @@ app.get("/lista-pt", listaPT);
 app.get("/exibir-pt", exibirPT)
 
 
+//Definição das rotas das telsa que tratam da administração dos usuários do sistema
+//  GET - lista-usuarios - exibe todos os usuários cadastrados no sistema
+//  GET - exibir-usuario - exibe usuário específico cadastrado no sistema
 app.get("/lista-usuarios", listaUsuarios);
+app.get("/exibir-usuario", exibirUsuario);
 
 app.listen(3000, ()=>{
     console.log("Servidor da web app rodando na porta 3000");

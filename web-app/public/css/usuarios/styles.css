@@ -5,4 +5,10 @@ table{
 
 a{
     text-decoration: none;
+    color: #19A7CE;
+    font-weight: bold;
+}
+
+p{
+    color: gray;
 }

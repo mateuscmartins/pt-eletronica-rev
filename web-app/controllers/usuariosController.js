@@ -2,4 +2,8 @@ const listaUsuarios = (req, res)=>{
     res.render('lista-usuarios',{});
 };
 
-module.exports = {listaUsuarios};
+const exibirUsuario = (req, res)=>{
+    res.render('usuario',{});
+};
+
+module.exports = { listaUsuarios, exibirUsuario };
