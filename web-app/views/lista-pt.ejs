@@ -6,62 +6,148 @@
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/listaPT/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+
 </head>
 <body>
 
-    <div class="container">
+    <div class="duas-colunas-lista-pt">
 
-        <h1>Permissões de trabalho emitidas </h1>
-        
-        <ul>
-            <li>
+    
+        <aside class="container">
 
-                <h2>Número da PT</h2>
-                <p>0001</p>
-                <p>Status: <span class='status'>Parcialmente aprovada</span></p>
+            <form action="">
 
-                <h2>Descrição do Serviço</h2>
-                <p>Substituir lâmpada no poste de entrada</p>
+                <h3>Número da PT</h3>
+                <input type="text" name="numero_pt" />
+
+                <h3>Status da PT</h3>
+                <select name="status_pt">
+                    <option>------</option>
+                    <option value="Emitida">Emitida</option>
+                    <option value="Parcialmente Aprovada">Parcialmente Aprovada</option>
+                    <option value="Aprovada">Aprovada</option>
+                    <option value="Encerrada">Encerrada</option>
+                    <option value="Cancelada">Cancelada</option>
+                </select>
+
+                <h3>Data de emissão da PT</h3>
+                <input type="date" name="data_emissao" />
+
+                <h3>Número da OS</h3>
+                <input type="text" name="ordem_servico" />
+
+                <h3>Emissor da OS</h3>
+                <input type="text" name="emissor" placeholder="Matrícula do emissor"/>
+
+                <div class="botao">
+                    <button type="submit">Buscar</button>
+                </div>
                 
-                <h2>Ordem de serviço</h2>
-                <p>123456</p>
 
-                <a href='/exibir-pt'>Visualizar</a>
-            </li>
+            </form>
 
-            <li>
+            
+            
 
-                <h2>Número da PT</h2>
-                <p>0002</p>
-                <p>Status: <span class='status'>Emitida</span></p>
+        </aside>
+        <div class="container">
+            <h1>Permissões de trabalho emitidas </h1>
+            
+            <table id="tabela-pt">
+                <thead>
+                    <tr>
+                        <th>PT</th>
+                        <th>Status</th>
+                        <th>Número da OS</th>
+                        <th>Descrição do Serviço</th>
+                        <th>Visualizar detalhes</th>
+                    </tr>
+                </thead>
 
-                <h2>Descrição do Serviço</h2>
-                <p>Fazer adequação física do laboratório de microbiologia no Instutito de Pesquisas Aplicadas a Epidemiologia</p>
-                
-                <h2>Ordem de serviço</h2>
-                <p>789456</p>
+                <tbody>
+                    <tr>
+                        <td>0001</td>
+                        <td>Parcialmente Aprovada</td>
+                        <td>123456</td>
+                        <td>Substituir lâmpada do poste da portaria principal</td>
+                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>Parcialmente Aprovada</td>
+                        <td>123456</td>
+                        <td>Substituir lâmpada do poste da portaria principal</td>
+                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>Parcialmente Aprovada</td>
+                        <td>123456</td>
+                        <td>Substituir lâmpada do poste da portaria principal</td>
+                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>Parcialmente Aprovada</td>
+                        <td>123456</td>
+                        <td>Substituir lâmpada do poste da portaria principal</td>
+                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>Parcialmente Aprovada</td>
+                        <td>123456</td>
+                        <td>Substituir lâmpada do poste da portaria principal</td>
+                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>Parcialmente Aprovada</td>
+                        <td>123456</td>
+                        <td>Substituir lâmpada do poste da portaria principal</td>
+                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>Parcialmente Aprovada</td>
+                        <td>123456</td>
+                        <td>Substituir lâmpada do poste da portaria principal</td>
+                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>Parcialmente Aprovada</td>
+                        <td>123456</td>
+                        <td>Substituir lâmpada do poste da portaria principal</td>
+                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>Parcialmente Aprovada</td>
+                        <td>123456</td>
+                        <td>Substituir lâmpada do poste da portaria principal</td>
+                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
+                    </tr>
+                    <tr>
+                        <td>0001</td>
+                        <td>Parcialmente Aprovada</td>
+                        <td>123456</td>
+                        <td>Substituir lâmpada do poste da portaria principal</td>
+                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
+                    </tr>
 
-                <a href='/exibir-pt'>Visualizar</a>
-            </li>
+                </tbody>
+            </table>
+            
+            
 
-            <li>
-                <h2>Número da PT</h2>
-                <p>0002</p>
-                <p>Status: <span class='status'>Finalizada</span></p>
-
-                <h2>Descrição do Serviço</h2>
-                <p>Trocar aparelho de ar condicionado do refeitório do Hospital</p>
-                    
-                <h2>Ordem de serviço</h2>
-                <p>789456</p>
-
-                <a href='/exibir-pt'>Visualizar</a>
-            </li>
-
-        </ul>
-
+        </div>
     </div>
 
+
+    <script src="/js/listaPT/scripts.js"></script>
     
 </body>
 </html>

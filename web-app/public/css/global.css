@@ -18,6 +18,12 @@ h1{
     margin-bottom: 30px;
 }
 
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #146C94;
+}
+
 .container{
     width: 100%;
     max-width: 1280px;
