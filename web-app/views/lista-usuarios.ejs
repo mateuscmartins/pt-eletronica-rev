@@ -4,59 +4,98 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/usuarios/styles.css">
+    <link rel="stylesheet" href="/css/listas/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
 
-    <title>Usuários</title>
+    <title>Lista de Usuários</title>
 </head>
 <body>
 
-    <div class="container">
+    <div class="duas-colunas-lista">
+
+        <aside class="container">
+
+            <form action="" method="post">
+
+                <h3>Matrícula</h3>
+                <input type="text" name="matricula" />
+
+                <h3>Nome</h3>
+                <input type="text" name="nome" />
+
+                <h3>Função</h3>
+                <select name="funcao">
+                    <option>------</option>
+                    <option value="Administrador de Sistema">Administrador de Sistema</option>
+                    <option value="Eletricista">Eletricista</option>
+                    <option value="Encarregado">Encarregado</option>
+                    <option value="Técnico de Segurança no Traballho">Técnico de Segurança no Traballho</option>
+                </select>
+
+                <div class="botao">
+                    <button type="submit">Buscar</button>
+                </div>
+
+
+            </form>
+        </aside>
         
-        <h1>Usuários cadastrados no sistema</h1>
-
-        <table>
-            <tr>
-                <th><h2>Matrícula</h2></th>
-                <th><h2>Nome</h2></th>
-                <th><h2>Função</h2></th>
-                <th><h2>Empresa</h2></th>
-                <th><h2>Perfil</h2></th>
-            </tr>
-
-            <tr>
-                <th><p>2022123456</p></th>
-                <th><p>Fulano da Silva</p></th>
-                <th><p>Encarregado</p></th>
-                <th><p>XYZ Ltda.</p></th>
-                <th><p>Encarregado</p></th>
-                <th><a href="">Visualizar</a></th>
-                <th><a href="">Excluir</a></th>
-            </tr>
-
-            <tr>
-                <th><p>2022123456</p></th>
-                <th><p>Fulano da Silva</p></th>
-                <th><p>Eletricista</p></th>
-                <th><p>XYZ Ltda.</p></th>
-                <th><p>Técnico de Manutenção</p></th>
-                <th><a href="">Visualizar</a></th>
-                <th><a href="">Excluir</a></th>
-            </tr>
-
-            <tr>
-                <th><p>2022123456</p></th>
-                <th><p>Fulano da Silva</p></th>
-                <th><p>Técnico de segurança no trabalho</p></th>
-                <th><p>XYZ Ltda.</p></th>
-                <th><p>Profissional de segurança</p></th>
-                <th><a href="">Visualizar</a></th>
-                <th><a href="">Excluir</a></th>
-            </tr>
-
+        <div class="container">
             
-        </table>
+            <h1>Usuários cadastrados no sistema</h1>
 
-    </div>
+            <table id="tabela">
+                <thead>
+                    <tr>
+                        <th>Matrícula></th>
+                        <th>Nome></th>
+                        <th>Função></th>
+                        <th>Empresa></th>
+                        <th>Perfil</th>
+                        <th>Visualizar detalhes</th>
+                        <th>Excluir perfil</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr>
+                        <th>2022123456</th>
+                        <th>Fulano da Silva</th>
+                        <th>Encarregado</th>
+                        <th>XYZ Ltda.</th>
+                        <th>Encarregado</th>
+                        <th><a href="">Visualizar</a></th>
+                        <th><a href="">Excluir</a></th>
+                    </tr>
     
+                    <tr>
+                        <th>2022123456</th>
+                        <th>Fulano da Silva</th>
+                        <th>Eletricista</th>
+                        <th>XYZ Ltda.</th>
+                        <th>Técnico de Manutenção</th>
+                        <th><a href="">Visualizar</a></th>
+                        <th><a href="">Excluir</a></th>
+                    </tr>
+    
+                    <tr>
+                        <th>2022123456</th>
+                        <th>Fulano da Silva</th>
+                        <th>Técnico de segurança no trabalho</th>
+                        <th>XYZ Ltda.</th>
+                        <th>Profissional de segurança</th>
+                        <th><a href="">Visualizar</a></th>
+                        <th><a href="">Excluir</a></th>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    
+    </div>
+
+    <script src="/js/listas/scripts.js"></script>
 </body>
 </html>

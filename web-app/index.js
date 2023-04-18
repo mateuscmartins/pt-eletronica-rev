@@ -14,10 +14,16 @@ const { loginView, loginSessao } = require('./controllers/loginController');
 //Importação dos métodos do controller de emissão de PT
 //  novaPTView - Tela do formulário
 //  listaPT - Tela que exibe todas as PTs cadastradas no banco de dados
+//  exibirPT - Tela que exibe dados de uma PT cadastradas no sistema
 const { novaPTView, listaPT, exibirPT } = require('./controllers/PTController');
 
 
-const { listaUsuarios, exibirUsuario } = require('./controllers/usuariosController');
+//Importação dos métodos do controller de emissão de PT
+//  listaUsuarios - Tela que exibe a lista dos usuários cadastrados no sistema
+//  exibirUsuario - Tela que exibe dados de um usuário cadastrado no sistema
+//  criarUsuario - Tela que permite a criação de novo usuário no sistema
+// registrarUsuario - Rota que realiza o cadastro de usuário no banco de dados
+const { listaUsuarios, exibirUsuario, criarUsuario, registrarUsuario } = require('./controllers/usuariosController');
 
 //Instanciação do express
 const app = express();
@@ -56,9 +62,12 @@ app.get("/exibir-pt", exibirPT)
 
 //Definição das rotas das telsa que tratam da administração dos usuários do sistema
 //  GET - lista-usuarios - exibe todos os usuários cadastrados no sistema
-//  GET - exibir-usuario - exibe usuário específico cadastrado no sistema
+//  GET - exibir-usuario - exibe usuário específico cadastrado no sistema para edição
+//  GET - criarUsuario - rota para cadastrar novo usuário no sistema
 app.get("/lista-usuarios", listaUsuarios);
 app.get("/exibir-usuario", exibirUsuario);
+app.get("/novo-usuario", criarUsuario);
+app.post("/novo-usuario", registrarUsuario);
 
 app.listen(3000, ()=>{
     console.log("Servidor da web app rodando na porta 3000");

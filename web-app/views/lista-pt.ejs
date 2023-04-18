@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Lista de Permissões de Trabalho</title>
     <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/listaPT/styles.css">
+    <link rel="stylesheet" href="/css/listas/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
@@ -12,12 +12,12 @@
 </head>
 <body>
 
-    <div class="duas-colunas-lista-pt">
+    <div class="duas-colunas-lista">
 
     
         <aside class="container">
 
-            <form action="">
+            <form action="" method="post">
 
                 <h3>Número da PT</h3>
                 <input type="text" name="numero_pt" />
@@ -55,7 +55,7 @@
         <div class="container">
             <h1>Permissões de trabalho emitidas </h1>
             
-            <table id="tabela-pt">
+            <table id="tabela">
                 <thead>
                     <tr>
                         <th>PT</th>
@@ -147,7 +147,7 @@
     </div>
 
 
-    <script src="/js/listaPT/scripts.js"></script>
+    <script src="/js/listas/scripts.js"></script>
     
 </body>
 </html>

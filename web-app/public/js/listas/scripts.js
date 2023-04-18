@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#tabela-pt').DataTable({
+    $('#tabela').DataTable({
       searching: false,
       ordering:  true,
       "paging": true,
