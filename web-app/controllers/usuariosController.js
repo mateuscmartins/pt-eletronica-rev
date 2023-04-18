@@ -15,9 +15,10 @@ const criarUsuario = (req, res)=>{
 }
 
 
-const registrarUsuario = (req, res)=>{
+const registrarUsuario = async (req, res)=>{
     const novoUsuario = new Usuario();
-    novoUsuario.cadastrarUsuario(req.body);
+    await novoUsuario.cadastrarUsuario(req.body);
+    res.redirect("/lista-usuarios");
 }
 
 module.exports = { listaUsuarios, exibirUsuario, criarUsuario, registrarUsuario};

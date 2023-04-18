@@ -7,7 +7,7 @@ module.exports = {
     async criar(req, res) {
 
         //Armazenando os dados enviados pela requisção POST
-        const { matricula, nome, funcao, empresa, perfil } = req;
+        const { matricula, nome, funcao, empresa, perfil } = req.body;
     
         //Armazenando dados no banco de dados na tabela usuarios
         await connection('usuarios').insert({
