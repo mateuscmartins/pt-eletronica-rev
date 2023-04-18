@@ -1,3 +1,4 @@
+const { json } = require('body-parser');
 const { api } = require('../services/api');
 
 class Usuario{
@@ -16,6 +17,11 @@ class Usuario{
         const response = await api.post('usuario', dados);
         
 
+    }
+
+    async listarTodosOsUsuarios(){
+        const listaDeUsuarios = await api.get('usuario'); 
+        return await (listaDeUsuarios.data);
     }
 }
 

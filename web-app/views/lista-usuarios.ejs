@@ -11,8 +11,8 @@
 
     <title>Lista de Usuários</title>
 </head>
-<body>
-
+<body> 
+    
     <div class="duas-colunas-lista">
 
         <aside class="container">
@@ -49,10 +49,10 @@
             <table id="tabela">
                 <thead>
                     <tr>
-                        <th>Matrícula></th>
-                        <th>Nome></th>
-                        <th>Função></th>
-                        <th>Empresa></th>
+                        <th>Matrícula</th>
+                        <th>Nome</th>
+                        <th>Função</th>
+                        <th>Empresa</th>
                         <th>Perfil</th>
                         <th>Visualizar detalhes</th>
                         <th>Excluir perfil</th>
@@ -60,35 +60,18 @@
                 </thead>
                 
                 <tbody>
+                    <% for(let i = 0; i < listaDeUsuarios.length; i++) {%>
                     <tr>
-                        <th>2022123456</th>
-                        <th>Fulano da Silva</th>
-                        <th>Encarregado</th>
-                        <th>XYZ Ltda.</th>
-                        <th>Encarregado</th>
+                        <th><%= listaDeUsuarios[i].matricula %></th>
+                        <th><%= listaDeUsuarios[i].nome %></th>
+                        <th><%= listaDeUsuarios[i].funcao %></th>
+                        <th><%= listaDeUsuarios[i].empresa %></th>
+                        <th><%= listaDeUsuarios[i].perfil %></th>
                         <th><a href="">Visualizar</a></th>
                         <th><a href="">Excluir</a></th>
                     </tr>
-    
-                    <tr>
-                        <th>2022123456</th>
-                        <th>Fulano da Silva</th>
-                        <th>Eletricista</th>
-                        <th>XYZ Ltda.</th>
-                        <th>Técnico de Manutenção</th>
-                        <th><a href="">Visualizar</a></th>
-                        <th><a href="">Excluir</a></th>
-                    </tr>
-    
-                    <tr>
-                        <th>2022123456</th>
-                        <th>Fulano da Silva</th>
-                        <th>Técnico de segurança no trabalho</th>
-                        <th>XYZ Ltda.</th>
-                        <th>Profissional de segurança</th>
-                        <th><a href="">Visualizar</a></th>
-                        <th><a href="">Excluir</a></th>
-                    </tr>
+                    <% } %>
+
                 </tbody>
             </table>
 

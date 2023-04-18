@@ -1,33 +1,34 @@
 //Importando o módulo de conexão com o banco de dados de desenvolvimento
 const connection = require('../db/connection');
-const { create } = require('../models/usuario');
-
-
 
 module.exports = {
     
-    /* 
-    async index(request, response){
-        
-        //Buscando lista de usuarios no banco de dados
-        const usuarios = await connection('usuarios').select('*');
     
-        return response.json(usuarios);
-            
-    },
-    */
-    
-    cadastrarNovoUsuario(req, res) {
+    async criar(req, res) {
 
-        const cadastro = create(req.body);
-        //Retornando a matricula do usuario para a aplicação
-        if(cadastro){
-            return res.json({message: "Cadastro realizado com sucesso"});
-        }else{
-            return res.json({message: "Falha no cadastro"});
-        }
-        
+        //Armazenando os dados enviados pela requisção POST
+        const { matricula, nome, funcao, empresa, perfil } = req;
+    
+        //Armazenando dados no banco de dados na tabela usuarios
+        await connection('usuarios').insert({
+            matricula,
+            nome,
+            funcao,
+            empresa,
+            perfil
+        })
+    
+        return res.json({matricula});
     },
+
+
+    async lerTodos(req, res){
+
+        const usuarios = await connection('usuarios').select(['matricula', 'nome', 'funcao', 'perfil', 'empresa']);
+    
+        return res.json(usuarios);
+    
+    }
 
     /*//Excluindo usuario do banco de dados
     async delete(request, response){

@@ -19,8 +19,8 @@ const routes = express.Router();
 //  GET - busca todos os usuários
 //  DELETE/:matricula - deleta usuário do sistema
 //  GET/:matricula - exibe dados do usuario específico da matrícula
-routes.post('/usuario', UsuariosController.cadastrarNovoUsuario);
-//routes.get('/usuario', UsuariosController.index);
+routes.post('/usuario', UsuariosController.criar);
+routes.get('/usuario', UsuariosController.lerTodos);
 //routes.delete('/usuario/:matricula', UsuariosController.delete)
 
 //Rota para criação de nova Permissão de Trabalho

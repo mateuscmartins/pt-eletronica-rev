@@ -1,10 +1,12 @@
 const Usuario = require('../models/usuario')
 
-const listaUsuarios = (req, res)=>{
-    res.render('lista-usuarios',{});
+const listaUsuarios = async (req, res)=>{
+    const novoUsuario = new Usuario();
+    const lista = await novoUsuario.listarTodosOsUsuarios();
+    res.render('lista-usuarios',{listaDeUsuarios: lista});
 };
 
-const exibirUsuario = (req, res)=>{
+const exibirUsuario = (req, res)=>{    
     res.render('usuario',{});
 };
 
