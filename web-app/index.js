@@ -13,9 +13,10 @@ const { loginView, loginSessao } = require('./controllers/loginController');
 
 //Importação dos métodos do controller de emissão de PT
 //  novaPTView - Tela do formulário
+//  registrarNovaPT - Rota que realiza o cadastro de uma nova PT no banco de dados 
 //  listaPT - Tela que exibe todas as PTs cadastradas no banco de dados
 //  exibirPT - Tela que exibe dados de uma PT cadastradas no sistema
-const { novaPTView, listaPT, exibirPT } = require('./controllers/PTController');
+const { novaPTView, registrarNovaPT, listaPT, exibirPT } = require('./controllers/PTController');
 
 
 //Importação dos métodos do controller de emissão de PT
@@ -42,14 +43,16 @@ app.set('views', './views')
 app.use(express.static(path.join(__dirname, '/public')));
 
 //Definição das rotas da tela inicial
-// GET - Carrega a página simples de login
+//  GET - Carrega a página simples de login
 //  POST - Realiza verificação do usuário e senha para login
 app.get("/", loginView);
 app.post("/", loginSessao);
 
 //Definição das rotas da tela de formulário de emissão de PT
-// GET - Carrega a página do formulário de emissão de PT
+//  GET - Carrega a página do formulário de emissão de PT
+//  POST - criarNovaPT - rota para realizar a comunicação do sistema com a API
 app.get("/nova-pt", novaPTView);
+app.post("/nova-pt", registrarNovaPT);
 
 
 
@@ -64,6 +67,7 @@ app.get("/exibir-pt", exibirPT)
 //  GET - lista-usuarios - exibe todos os usuários cadastrados no sistema
 //  GET - exibir-usuario - exibe usuário específico cadastrado no sistema para edição
 //  GET - criarUsuario - rota para cadastrar novo usuário no sistema
+//  POST - registrarUsuario - rota para realizar a comunicação do sistema com a API
 app.get("/lista-usuarios", listaUsuarios);
 app.get("/exibir-usuario", exibirUsuario);
 app.get("/novo-usuario", criarUsuario);

@@ -2,6 +2,10 @@ h2{
     width: 90%;
 }
 
+.titulo-float{
+    float: left;
+}
+
 section{
     margin-bottom: 30px;
 }
