@@ -2,6 +2,8 @@ const OrdemServico = require('../models/ordemServico');
 const PermissaoDeTrabalho = require('../models/permissaoTrabalho');
 const Risco = require("../models/risco");
 const Perigo = require("../models/perigo");
+const Equipamento = require("../models/equipamento");
+const MedidaPreventiva = require("../models/medidaPreventiva");
 
 const novaPTView = (req, res)=>{
     res.render('nova-pt',{});
@@ -32,10 +34,22 @@ const registrarNovaPT = (req, res)=>{
         perigoDaPermissaoDeTrabalho.cadastrarPerigo(dados, codigoPT);
     }
 
+    function cadastrarEquipamento(codigoPT){
+        const equipamentoDaPermissaoDeTrabalho = new Equipamento;
+        equipamentoDaPermissaoDeTrabalho.cadastrarEquipamento(dados, codigoPT);
+    }
+
+    function cadastrarMedidaPreventiva(codigoPT){
+        const medidaPreventivaDaPermissaoDeTrabalho = new MedidaPreventiva;
+        medidaPreventivaDaPermissaoDeTrabalho.cadastrarMedidaPreventiva(dados, codigoPT);
+    }
+
    cadastrarOS();
    cadastrarPT().then((resultado) => {
     cadastrarRisco(resultado[0]);
     cadastrarPerigo(resultado[0]);
+    cadastrarEquipamento(resultado[0]);
+    cadastrarMedidaPreventiva(resultado[0])
    });   
         
 }
