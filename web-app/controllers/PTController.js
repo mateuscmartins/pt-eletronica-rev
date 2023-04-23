@@ -1,5 +1,6 @@
 const OrdemServico = require('../models/ordemServico');
 const PermissaoDeTrabalho = require('../models/permissaoTrabalho');
+const Funcionario = require("../models/funcionario");
 const Risco = require("../models/risco");
 const Perigo = require("../models/perigo");
 const Equipamento = require("../models/equipamento");
@@ -24,6 +25,11 @@ const registrarNovaPT = (req, res)=>{
         return codigoPT;
     }
 
+    function cadastrarFuncionario(codigoPT){
+        const funcionarioDaPermissaoDeTrabalho = new Funcionario;
+        funcionarioDaPermissaoDeTrabalho.cadastrarFuncionario(dados, codigoPT);
+    }
+
     function cadastrarRisco(codigoPT){
         const riscoDaPermissaoDeTrabalho = new Risco;
         riscoDaPermissaoDeTrabalho.cadastrarRisco(dados, codigoPT);
@@ -46,6 +52,7 @@ const registrarNovaPT = (req, res)=>{
 
    cadastrarOS();
    cadastrarPT().then((resultado) => {
+    cadastrarFuncionario(resultado[0]);
     cadastrarRisco(resultado[0]);
     cadastrarPerigo(resultado[0]);
     cadastrarEquipamento(resultado[0]);
