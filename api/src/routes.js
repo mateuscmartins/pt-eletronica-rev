@@ -2,7 +2,7 @@
 const express = require('express');
 
 //Importa os Controllers
-//const SessaoController = require('./controllers/SessaoController');
+const SessaoController = require('./controllers/sessao');
 const UsuariosController = require('./controllers/usuario');
 const PTController = require('./controllers/permissaoDeTrabalho');
 
@@ -10,8 +10,8 @@ const PTController = require('./controllers/permissaoDeTrabalho');
 const routes = express.Router();
 
 
-//Rota de Login
-//routes.post('/sessao', SessaoController.create);
+//Rota de para lidar com sistema de autenticação
+routes.post('/sessao', SessaoController.criar);
 
 
 //Rotas para lidar com o armazenamentos dos usuários no sistema
