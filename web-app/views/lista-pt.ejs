@@ -53,6 +53,7 @@
 
         </aside>
         <div class="container">
+
             <h1>Permissões de trabalho emitidas </h1>
             
             <table id="tabela">
@@ -67,77 +68,17 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>0001</td>
-                        <td>Parcialmente Aprovada</td>
-                        <td>123456</td>
-                        <td>Substituir lâmpada do poste da portaria principal</td>
-                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>Parcialmente Aprovada</td>
-                        <td>123456</td>
-                        <td>Substituir lâmpada do poste da portaria principal</td>
-                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>Parcialmente Aprovada</td>
-                        <td>123456</td>
-                        <td>Substituir lâmpada do poste da portaria principal</td>
-                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>Parcialmente Aprovada</td>
-                        <td>123456</td>
-                        <td>Substituir lâmpada do poste da portaria principal</td>
-                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>Parcialmente Aprovada</td>
-                        <td>123456</td>
-                        <td>Substituir lâmpada do poste da portaria principal</td>
-                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>Parcialmente Aprovada</td>
-                        <td>123456</td>
-                        <td>Substituir lâmpada do poste da portaria principal</td>
-                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>Parcialmente Aprovada</td>
-                        <td>123456</td>
-                        <td>Substituir lâmpada do poste da portaria principal</td>
-                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>Parcialmente Aprovada</td>
-                        <td>123456</td>
-                        <td>Substituir lâmpada do poste da portaria principal</td>
-                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>Parcialmente Aprovada</td>
-                        <td>123456</td>
-                        <td>Substituir lâmpada do poste da portaria principal</td>
-                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
-                    </tr>
-                    <tr>
-                        <td>0001</td>
-                        <td>Parcialmente Aprovada</td>
-                        <td>123456</td>
-                        <td>Substituir lâmpada do poste da portaria principal</td>
-                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
-                    </tr>
 
+                    <% for(let i = 0; i < listaDePTs.length; i++) {%>
+                    <tr>
+                        <td><%= listaDePTs[i].codigo_pt %></td>
+                        <td style="text-transform: capitalize;"><%= listaDePTs[i].status_pt %></td>
+                        <td><%= listaDePTs[i].ordem_servico %></td>
+                        <td><%= listaDePTs[i].descricao %></td>
+                        <td class="celula-visualizar"><a href="">Visualizar</a></td>
+                    </tr>
+                    <% } %>
+                    
                 </tbody>
             </table>
             

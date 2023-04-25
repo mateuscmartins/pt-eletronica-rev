@@ -1,5 +1,6 @@
 const connection = require('../services/connection');
-const dataDeHoje = require('../services/dataAtual')
+const dataDeHoje = require('../services/dataAtual');
+const { api } = require('../services/api');
 
 class PermissaoDeTrabalho{
 
@@ -13,6 +14,11 @@ class PermissaoDeTrabalho{
         })
 
         return codigo_pt;
+    }
+
+    async listarTodasAsPermissoesDeTrabalho(){
+        const listaDePermissoesDeTrabalho = await api.get('permissao_trabalho'); 
+        return await (listaDePermissoesDeTrabalho.data);
     }
     
 }

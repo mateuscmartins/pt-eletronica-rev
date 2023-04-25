@@ -7,11 +7,13 @@ const Equipamento = require("../models/equipamento");
 const MedidaPreventiva = require("../models/medidaPreventiva");
 
 
+//Função que lida com a view de cadastramento da permissão de trabalho no banco de dados
 const novaPTView = (req, res)=>{
     res.render('nova-pt',{});
 };
 
 
+//Função que lida com o cadastramento da permissão de trabalho no banco de dados
 const registrarNovaPT = (req, res)=>{
     
     const dados = req.body;
@@ -63,9 +65,11 @@ const registrarNovaPT = (req, res)=>{
         
 }
 
-
-const listaPT = (req, res)=>{
-    res.render('lista-pt', {})
+//Função que lida com o envio da lista de permissões de trabalho do banco de dados
+const listarPT = async (req, res)=>{
+    const permissaoDeTrabalho = new PermissaoDeTrabalho();
+    const PTs = await permissaoDeTrabalho.listarTodasAsPermissoesDeTrabalho();
+    res.render('lista-pt', {listaDePTs: PTs})
 }
 
 
@@ -73,4 +77,4 @@ const exibirPT = (req, res)=>{
     res.render('exibir-pt')
 }
 
-module.exports = { novaPTView, registrarNovaPT, listaPT, exibirPT };
+module.exports = { novaPTView, registrarNovaPT, listarPT, exibirPT };
