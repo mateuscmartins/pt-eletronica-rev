@@ -10,7 +10,7 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: path.join(__dirname, 'src/db/db.sqlite')
+      filename: "/home/mateus/Documentos/pt-eletronica-rev/banco-dados/db.sqlite"
     },
 
     useNullAsDefault: true,
