@@ -17,6 +17,9 @@
                 <input type='text' name="matricula" placeholder="Insira sua matrícula" required/>
                 <h1>Senha</h1>
                 <input type="password" name="senha" placeholder="Insira sua senha" required/>
+                <% if(erro){ %>
+                    <p style="color: red"><%= erro.error %></p>
+                <%}%>
                 <button type="submit">Entrar</button>
             </form>
         </section>

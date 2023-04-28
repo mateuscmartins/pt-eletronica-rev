@@ -20,7 +20,7 @@ module.exports = {
             .first();
     
         if(!sessao){
-            return res.status(400).json({ error: 'usuário não encontrado'});
+            return res.status(400).json({ error: 'Usuário ou senha incorretos'});
         }
 
         return res.json(sessao);

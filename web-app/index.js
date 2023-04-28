@@ -5,6 +5,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const session = require('express-session')
 
 //Importação dos métodos do controller de login
 //  loginView - Tela de login
@@ -34,9 +35,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
+//Parametrizando o middleware de sessão do express
+app.use(session({
+    secret: 'pteletronica',
+    saveUninitialized: false,
+    resave: false
+}));
+
 //Parametrização do tameplate engine utilizando o EJS com ferramenta
 app.set('view engine', 'ejs');
-app.set('views', './views')
+app.set('views', './views');
 
 //Parametrização do caminho para a utilização arquivos estáticos
 //  Utilizado para o EJS importar os arquivos CSS e JS
