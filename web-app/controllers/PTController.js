@@ -69,7 +69,7 @@ const registrarNovaPT = (req, res)=>{
 const listarPT = async (req, res)=>{
     const permissaoDeTrabalho = new PermissaoDeTrabalho();
     const PTs = await permissaoDeTrabalho.listarTodasAsPermissoesDeTrabalho();
-    res.render('lista-pt', {listaDePTs: PTs})
+    res.render('lista-pt', {listaDePTs: PTs, usuario: req.session.userprofile})
 }
 
 

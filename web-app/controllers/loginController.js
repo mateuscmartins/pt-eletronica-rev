@@ -18,7 +18,14 @@ const loginSessao = (req, res)=>{
         req.session.user = resultado.data.nome;
         req.session.userprofile = resultado.data.perfil;
         console.log(req.session)
-        res.render('login', {sessao: req.session})
+        if(req.session.userprofile === 'adm'){
+            res.render('lista-usuarios', {sessao: req.session})
+        };
+
+        if(req.session.userprofile === 'fiscal'){
+            res.redirect('/lista-pt');
+        };
+        
     })
     .catch((error)=>{
         //console.log(error.response.data)
