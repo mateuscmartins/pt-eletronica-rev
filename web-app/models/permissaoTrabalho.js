@@ -21,6 +21,10 @@ class PermissaoDeTrabalho{
         return await (listaDePermissoesDeTrabalho.data);
     }
     
+    async listarPermissaoDeTrabalhoFiltrada(dadosFiltro){
+        const listaDePermissoesDeTrabalhoFiltrada = await api.post('permissao_trabalho/filtrada', dadosFiltro);
+        return listaDePermissoesDeTrabalhoFiltrada.data
+    }
 }
 
 module.exports = PermissaoDeTrabalho;

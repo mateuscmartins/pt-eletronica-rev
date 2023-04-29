@@ -73,8 +73,16 @@ const listarPT = async (req, res)=>{
 }
 
 
+//Função que lida com a requisição de lista de PTs filtradas
+const listarPTFiltradas = async(req, res) => {
+    const permissaoDeTrabalho = new PermissaoDeTrabalho();
+    const PTsFiltradas = await permissaoDeTrabalho.listarPermissaoDeTrabalhoFiltrada(req.body);
+    console.log(req.body);
+    res.render('lista-pt', {listaDePTs: PTsFiltradas, usuario: req.session.userprofile})
+}
+
 const exibirPT = (req, res)=>{
     res.render('exibir-pt')
 }
 
-module.exports = { novaPTView, registrarNovaPT, listarPT, exibirPT };
+module.exports = { novaPTView, registrarNovaPT, listarPT, exibirPT, listarPTFiltradas };

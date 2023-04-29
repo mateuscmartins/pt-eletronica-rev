@@ -43,8 +43,6 @@ module.exports = {
         if(emissor){
             filtros.emissor = emissor;
         }
-
-        console.log(filtros)
         
         const listaFiltrada = 
             await connection('permissao_trabalho')
