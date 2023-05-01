@@ -61,7 +61,9 @@ const registrarNovaPT = (req, res)=>{
     cadastrarPerigo(resultado[0]);
     cadastrarEquipamento(resultado[0]);
     cadastrarMedidaPreventiva(resultado[0])
-   });   
+   }).then((resultado) => {res.redirect("/lista-pt")});
+
+
         
 }
 
