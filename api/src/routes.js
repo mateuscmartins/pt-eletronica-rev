@@ -34,6 +34,7 @@ routes.get("/lista-funcoes", UsuariosController.listarFuncoes);
 //  POST - busca
 routes.get('/permissao_trabalho', PTController.lerTodos);
 routes.post('/permissao_trabalho/filtrada', PTController.buscarPTsFiltradas);
+routes.get('/permissao_trabalho/:codigo_pt', PTController.lerPTEspecifica);
 
 
 //Exporta o modulo de rotas para ser utilizado por outros módulos
