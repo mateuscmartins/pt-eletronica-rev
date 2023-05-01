@@ -27,8 +27,53 @@ module.exports = {
         const usuarios = await connection('usuarios').select(['matricula', 'nome', 'funcao', 'perfil', 'empresa']);
     
         return res.json(usuarios);
+    },
+
+    async listarFuncoes(req, res){
+
+        const funcoes = await connection('usuarios').distinct('funcao');
     
+        return res.json(funcoes);
+    },
+
+
+    async buscarUsuariosFiltrados(req, res) {
+        
+        const {matricula, nome, funcao, perfil} = req.body;
+
+        const filtros = {};
+
+        if(matricula){
+            filtros.matricula = matricula;
+        }
+
+        if(nome){
+            filtros.nome = nome;
+        }
+
+        if(funcao){
+            filtros.funcao = funcao;
+        }
+
+        if(perfil){
+            filtros.perfil = perfil;
+        }
+        
+        const listaFiltrada = 
+            await connection('usuarios')
+            .select(
+                'matricula', 
+                'nome',
+                'funcao',
+                'perfil',
+                'empresa')
+            .from('usuarios')
+            .where(filtros)
+
+        return res.json(listaFiltrada);
+            
     }
+
 
     /*//Excluindo usuario do banco de dados
     async delete(request, response){

@@ -25,7 +25,7 @@ const { novaPTView, registrarNovaPT, listarPT, exibirPT, listarPTFiltradas } = r
 //  exibirUsuario - Tela que exibe dados de um usuário cadastrado no sistema
 //  criarUsuario - Tela que permite a criação de novo usuário no sistema
 // registrarUsuario - Rota que realiza o cadastro de usuário no banco de dados
-const { listaUsuarios, exibirUsuario, criarUsuario, registrarUsuario } = require('./controllers/usuariosController');
+const { listaUsuarios, exibirUsuario, criarUsuario, registrarUsuario, listarUsuariosFiltrados } = require('./controllers/usuariosController');
 
 //Instanciação do express
 const app = express();
@@ -76,10 +76,12 @@ app.get("/exibir-pt", exibirPT)
 
 //Definição das rotas das telsa que tratam da administração dos usuários do sistema
 //  GET - lista-usuarios - exibe todos os usuários cadastrados no sistema
+//  POST - lista-usuario - exibe os usuarios conforme critérios de filtro do usuario
 //  GET - exibir-usuario - exibe usuário específico cadastrado no sistema para edição
 //  GET - criarUsuario - rota para cadastrar novo usuário no sistema
 //  POST - registrarUsuario - rota para realizar a comunicação do sistema com a API
 app.get("/lista-usuarios", listaUsuarios);
+app.post('/lista-usuarios', listarUsuariosFiltrados)
 app.get("/exibir-usuario", exibirUsuario);
 app.get("/novo-usuario", criarUsuario);
 app.post("/novo-usuario", registrarUsuario);

@@ -23,6 +23,17 @@ class Usuario{
         const listaDeUsuarios = await api.get('usuario'); 
         return await (listaDeUsuarios.data);
     }
+
+    async listarUsuariosFiltrados(dadosFiltro){
+        const listaDeUsuariosFiltrada = await api.post('usuario/filtrado', dadosFiltro);
+        return listaDeUsuariosFiltrada.data
+    }
+
+
+    async listarFuncoes(){
+        const listaDeFuncoes = await api.get('lista-funcoes');
+        return listaDeFuncoes.data
+    }
 }
 
 

@@ -4,7 +4,8 @@ const Usuario = require('../models/usuario')
 const listaUsuarios = async (req, res)=>{
     const novoUsuario = new Usuario();
     const lista = await novoUsuario.listarTodosOsUsuarios();
-    res.render('lista-usuarios',{listaDeUsuarios: lista});
+    const listaFuncoes = await novoUsuario.listarFuncoes();
+    res.render('lista-usuarios',{listaDeUsuarios: lista, usuario: req.session.userprofile, teste:"teste", listaDeFuncoes: listaFuncoes});
 };
 
 const exibirUsuario = (req, res)=>{    
@@ -22,4 +23,12 @@ const registrarUsuario = async (req, res)=>{
     res.redirect("/lista-usuarios");
 }
 
-module.exports = { listaUsuarios, exibirUsuario, criarUsuario, registrarUsuario};
+//Função que lida com a requisição de lista de usuários filtrados
+const listarUsuariosFiltrados = async(req, res) => {
+    const usuario = new Usuario();
+    const usuariosFiltrados = await usuario.listarUsuariosFiltrados(req.body);
+    const listaFuncoes = await usuario.listarFuncoes();
+    res.render('lista-usuarios', {listaDeUsuarios: usuariosFiltrados, usuario: req.session.userprofile, listaDeFuncoes: listaFuncoes})
+}
+
+module.exports = { listaUsuarios, exibirUsuario, criarUsuario, registrarUsuario, listarUsuariosFiltrados};

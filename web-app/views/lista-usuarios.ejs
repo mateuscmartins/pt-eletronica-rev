@@ -12,7 +12,7 @@
     <title>Lista de Usuários</title>
 </head>
 <body> 
-    
+
     <div class="duas-colunas-lista">
 
         <aside class="container">
@@ -27,15 +27,27 @@
 
                 <h3>Função</h3>
                 <select name="funcao">
-                    <option>------</option>
-                    <option value="Administrador de Sistema">Administrador de Sistema</option>
-                    <option value="Eletricista">Eletricista</option>
-                    <option value="Encarregado">Encarregado</option>
-                    <option value="Técnico de Segurança no Traballho">Técnico de Segurança no Traballho</option>
+                    <option value="">------</option>
+                    
+                    <% for(let i = 0; i < listaDeFuncoes.length; i++) {%>
+                    <option value="<%= listaDeFuncoes[i].funcao %>"><%= listaDeFuncoes[i].funcao %></option>
+                    <% } %>
+                </select>
+
+                <h3>Perfil</h3>
+                <select name="perfil">
+                    <option value="">------</option>
+                    <option value="adm">Administrador do Sistema</option>
+                    <option value="encarregado-manutencao">Encarregado de Manutenção</option>
+                    <option value="fiscal">Fiscal</option>
+                    <option value="profissional-seguranca">Profissional de Segurança no Trabalho</option>
+                    <option value="tecnico-manutencao">Técnico de Manutenção</option>
+                    
                 </select>
 
                 <div class="botao">
                     <button type="submit">Buscar</button>
+                    <button onclick="location.href='http://localhost:3000/lista-usuario'">Limpar</button>
                 </div>
 
 
