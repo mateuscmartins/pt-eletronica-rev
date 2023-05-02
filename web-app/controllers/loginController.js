@@ -27,7 +27,7 @@ const loginSessao = (req, res)=>{
         };
 
         if(req.session.userprofile === 'tecnico-manutencao' || req.session.userprofile === 'encarregado-manutencao'){
-            res.redirect('/lista-pt');
+            res.redirect('/lista-pt/manutencao');
         };
 
         if(req.session.userprofile === 'seguranca-trabalho'){

@@ -30,6 +30,11 @@ class PermissaoDeTrabalho{
         const dadosDaPermissaoDeTrabalho = await api.get('permissao_trabalho/' + codigoPT);
         return dadosDaPermissaoDeTrabalho.data
     }
+
+    async listarPermissaoDeTrabalhoFiltradaPorProfissional(matricula){
+        const listaDePermissoesDeTrabalhoFiltradasPorProfissional = await api.get('permissao_trabalho/profissional/' + matricula);
+        return listaDePermissoesDeTrabalhoFiltradasPorProfissional.data;
+    }
 }
 
 module.exports = PermissaoDeTrabalho;
