@@ -153,6 +153,25 @@ module.exports = {
 
         return res.json(listaFiltrada);
             
-    } 
+    },
+    
+    async buscarPTsPorProfissional(req, res){
+        const matriucla = req.params.matricula;
+
+        const listaDePermissoesDeTrabalho = 
+            await connection('funcionarios_pt')
+            .select(
+                'funcionarios_pt.codigo_pt',
+                'permissao_trabalho.status_pt',
+                'ordem_servico.ordem_servico', 
+                'ordem_servico.descricao'
+            )
+            .from('funcionarios_pt')
+            .leftJoin('permissao_trabalho','permissao_trabalho.codigo_pt' ,'funcionarios_pt.codigo_pt')
+            .leftJoin('ordem_servico', 'ordem_servico.ordem_servico', 'permissao_trabalho.ordem_servico')
+            .where("funcionarios_pt.matricula", "=", matriucla)
+
+        return res.json(listaDePermissoesDeTrabalho);
+    }
 
 }

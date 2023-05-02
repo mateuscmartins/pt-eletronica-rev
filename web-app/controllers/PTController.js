@@ -62,8 +62,6 @@ const registrarNovaPT = (req, res)=>{
     cadastrarEquipamento(resultado[0]);
     cadastrarMedidaPreventiva(resultado[0])
    }).then((resultado) => {res.redirect("/lista-pt")});
-
-
         
 }
 
@@ -83,6 +81,7 @@ const listarPTFiltradas = async(req, res) => {
     res.render('lista-pt', {listaDePTs: PTsFiltradas, usuario: req.session.userprofile})
 }
 
+//Função que lida com a requisição pra visualizar apenas os dados de uma PT específica
 const exibirPT = async (req, res)=>{
     const codDaPT = req.params.codigo_pt;
     const permissaoDeTrabalho = new PermissaoDeTrabalho();

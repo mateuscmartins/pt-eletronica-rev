@@ -13,16 +13,24 @@ const loginSessao = (req, res)=>{
     const resultadoLogin = novaSessao.iniciarSessao({ matricula, senha });
     resultadoLogin
     .then((resultado)=>{
-        console.log(resultado);
+    
         req.session.userid = resultado.data.matricula;
         req.session.user = resultado.data.nome;
         req.session.userprofile = resultado.data.perfil;
-        console.log(req.session)
+        
         if(req.session.userprofile === 'adm'){
-            res.render('lista-usuarios', {sessao: req.session})
+            res.redirect('/lista-usuarios')
         };
 
         if(req.session.userprofile === 'fiscal'){
+            res.redirect('/lista-pt');
+        };
+
+        if(req.session.userprofile === 'tecnico-manutencao' || req.session.userprofile === 'encarregado-manutencao'){
+            res.redirect('/lista-pt');
+        };
+
+        if(req.session.userprofile === 'seguranca-trabalho'){
             res.redirect('/lista-pt');
         };
         
