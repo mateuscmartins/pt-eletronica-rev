@@ -29,6 +29,8 @@ module.exports = {
                     'permissao_trabalho.codigo_pt as PT', 
                     'permissao_trabalho.ordem_servico',
                     'permissao_trabalho.emissor',
+                    'usuarios.nome as nome_emissor',
+                    'usuarios.funcao as funcao_emissor',
                     'permissao_trabalho.data_emissao',
                     'permissao_trabalho.data_encerramento',
                     'permissao_trabalho.status_pt', 
@@ -42,6 +44,7 @@ module.exports = {
                 )
                 .from('permissao_trabalho')
                 .leftJoin('ordem_servico', 'ordem_servico.ordem_servico', 'permissao_trabalho.ordem_servico')
+                .leftJoin('usuarios', 'usuarios.matricula', 'permissao_trabalho.emissor')
                 .where('permissao_trabalho.codigo_pt', '=',  codigo_pt)
                 .first()
         

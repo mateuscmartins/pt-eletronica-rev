@@ -156,6 +156,12 @@ textarea {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
+
+.quatro-colunas-profissionais{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .tabela-profissionais{
     width: 100%;
     text-align: left;

@@ -9,17 +9,18 @@
 </head>
 <body>
 
+     
     <div class="container">
-       <h1>Permissão de Trabalho: 0001 </h1>
+       <h1>Permissão de Trabalho: <%= dadosPermissaoDeTrabalho.PT %> </h1>
        
        <section>
-        <p>Status: <span class='status'>Parcialmente aprovada</span></p>
+        <p>Status: <span class='status' style="text-transform: capitalize;"><%= dadosPermissaoDeTrabalho.status_pt %></span></p>
        </section>
 
        <section id="autor-pt">
-            <p>Autor: <span> Fulano da Silva</span></p>
-            <p>Matrícula: <span> 123456</span></p>
-            <p>Função: <span>Técnico de segurança no trabalho</span></p>
+            <p>Autor: <span> <%= dadosPermissaoDeTrabalho.nome_emissor %></span></p>
+            <p>Matrícula: <span> <%= dadosPermissaoDeTrabalho.emissor %> </span></p>
+            <p>Função: <span><%= dadosPermissaoDeTrabalho.funcao_emissor %></span></p>
        </section>
 
 
@@ -35,12 +36,12 @@
 
                     <div class="linha-conteudo">
                         <h3>Número da Ordem de Serviço</h3>
-                        <p>123456</p>  
+                        <p><%= dadosPermissaoDeTrabalho.ordem_servico %></p>  
                     </div>
                     
                     <div class="linha-conteudo">
                         <h3>Descrição da Ordem de Serviço</h3>
-                        <p>Substituir lâmpada no poste de entrada</p>
+                        <p><%= dadosPermissaoDeTrabalho.descricao %></p>
                     </div>
         
                 </div>
@@ -52,14 +53,14 @@
                         <div class="linha-conteudo">
                             <div class="conteudo-esquerda">
                                 <h3>Data de Início Previsto</h3>
-                                <p>14/05/2023</p>
+                                <p><%= dadosPermissaoDeTrabalho.data_inicio_previsto %></p>
                             </div>
                         </div> 
 
                         <div class="linha-conteudo">
                             <div class="conteudo-direita">
                                 <h3>Data de Término Previsto</h3>
-                                <p>15/05/2023</p>
+                                <p><%= dadosPermissaoDeTrabalho.data_termino_previsto %></p>
                             </div>
                         </div>
 
@@ -69,13 +70,17 @@
 
                         <div class="linha-conteudo">
                             <h3>Local de Execução do Serviço</h3>
-                            <p>Entrada principal da Fundação</p>
+                            <p><%= dadosPermissaoDeTrabalho.local_servico %></p>
                         </div>
 
                         <div class="linha-conteudo">
                             <h3 class="legenda-inline">Área restrita: </h3>
                             <span>
-                                Não
+                                <% if(dadosPermissaoDeTrabalho.area_restrita == 'true'){%>
+                                    Sim
+                                <%}else{%>
+                                    Não
+                                <%}%>
                             </span>
                         </div>
 
@@ -95,20 +100,32 @@
                 
                 <h3>ENCARREGADO</h3>
                 
-                <div class="tres-colunas-profissionais">
+                <div class="quatro-colunas-profissionais">
                     <div class="linha-conteudo">
                         <h3>Matrícula: </h3>
-                        <p>2022101010</p> 
+                        <% for(let i = 0; i < dadosPermissaoDeTrabalho.funcionarios.length; i++ ){%>
+                            <% if(dadosPermissaoDeTrabalho.funcionarios[i].funcao == "Encarregado"){%>
+                            <p> <%= dadosPermissaoDeTrabalho.funcionarios[i].matricula %></p> 
                     </div>
     
                     <div class="linha-conteudo">
                         <h3>Nome: </h3>
-                        <p>Encarregado 1</p> 
+                        <p><%= dadosPermissaoDeTrabalho.funcionarios[i].nome %></p> 
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <h3>Anuência: </h3>
+                        <% if(dadosPermissaoDeTrabalho.funcionarios[i].ciente == "true") {%>
+                        <p>De acordo</p>
+                        <% }else{ %>
+                        <p style="color: red">FALTA ANUÊNCIA</p>
+                        <% } %>
                     </div>
 
                     <div class="linha-conteudo">
                         <h3>Empresa</h3>
-                        <p>XYZ Ltda.</p>
+                        <p><%= dadosPermissaoDeTrabalho.funcionarios[i].empresa %></p>
+                        <% }} %>
                     </div>
                 </div>
 
@@ -124,23 +141,20 @@
                         <th><h3>Anuência</h3></th>
                         <th><h3>Empresa</h3></th>
                     </tr>
-
+                    <% for(let j = 0; j < dadosPermissaoDeTrabalho.funcionarios.length; j++ ) {%>
+                        <% if(dadosPermissaoDeTrabalho.funcionarios[j].funcao != "Encarregado"){%>
                     <tr>
-                        <td><p>2023963852</p></td>
-                        <td><p>Profissional 1</p></td>
-                        <td><p>Eletricista</p></td>
+                        <td><p><%= dadosPermissaoDeTrabalho.funcionarios[j].matricula %></p></td>
+                        <td><p><%= dadosPermissaoDeTrabalho.funcionarios[j].nome %></p></td>
+                        <td><p><%= dadosPermissaoDeTrabalho.funcionarios[j].funcao %></p></td>
+                        <% if(dadosPermissaoDeTrabalho.funcionarios[j].ciente == "true") { %>
                         <td><p>De acordo</p></td>
-                        <td><p>XYZ Ltda.</p></td>
+                        <%}else{%>
+                        <td><p style="color: red">FALTA ANUÊNCIA</p></td>
+                        <%}%>
+                        <td><p><%= dadosPermissaoDeTrabalho.funcionarios[j].empresa %></p></td>
                     </tr>
-
-                    <tr>
-                        <td><p>2022568923</p></td>
-                        <td><p>Profissional 2</p></td>
-                        <td><p>Ajudante</p></td>
-                        <td><p style="color: red;">FALTA ANUÊNCIA</p></td>
-                        <td><p>XYZ Ltda.</p></td>
-                    </tr>
-
+                    <%}}%>
                 </table>
 
             </div>
@@ -153,15 +167,11 @@
             </div>
 
             <div class="bloco-conteudo tres-colunas">
-                
+                <% for(let k = 0; k < dadosPermissaoDeTrabalho.riscos.length; k++) {%>
                 <div class="linha-conteudo">
-                    <p>▶ Eletricidade</p>
+                    <p>▶ <%= dadosPermissaoDeTrabalho.riscos[k].descricao_risco %></p>
                 </div>
-
-                <div class="linha-conteudo">
-                    <p>▶ Altura, telhados e/ou níveis elevados </p>
-                </div>
-
+                <% } %>
             </div>
 
         </section>
@@ -174,27 +184,11 @@
             </div>
 
             <div class="bloco-conteudo tres-colunas">
-                
+                <% for(let l = 0; l < dadosPermissaoDeTrabalho.perigos.length; l++) {%>
                 <div class="linha-conteudo">
-                    <p>▶ Choque elétrico</p>
+                    <p>▶ <%= dadosPermissaoDeTrabalho.perigos[l].descricao_perigo %></p>
                 </div>
-                
-                <div class="linha-conteudo">
-                    <p>▶ Contato com ferramentas, equipamentos e peças com cantos vivos e rebarbas</p>
-                </div>
-
-                <div class="linha-conteudo">
-                    <p>▶ Expor terceiros a perigos</p>
-                </div>
-
-                <div class="linha-conteudo">
-                    <p>▶ Queda / Diferença de Nível</p>
-                </div>
-
-                <div class="linha-conteudo">
-                    <p>▶ Queda de PTA</p>
-                </div>
-         
+                <% } %>
             </div>
 
         </section>
@@ -206,34 +200,11 @@
             </div>
 
             <div class="bloco-conteudo tres-colunas">
-
+                <% for(let m = 0; m < dadosPermissaoDeTrabalho.equipamentos.length; m++) {%>
                 <div class="linha-conteudo">
-                    <p>▶ Capacete para eletricista com jugular</p>
+                    <p>▶ <%= dadosPermissaoDeTrabalho.equipamentos[m].descricao_equipamento %></p>
                 </div>
-
-                <div class="linha-conteudo">
-                    <p>▶ Cinto tipo Paraquedista</p>
-                </div>
-
-                <div class="linha-conteudo">
-                    <p>▶ Conjunto de ferramentas isoladas</p>
-                </div>
-
-                <div class="linha-conteudo">
-                    <p>▶ Luva isolante Classe 0</p>
-                </div>
-
-                <div class="linha-conteudo">
-                    <p>▶ Óculos de segurança com lente escura</p>
-                </div>
-                
-                <div class="linha-conteudo">
-                    <p>▶ Sapato de eletricista</p>
-                </div>
-                
-                <div class="linha-conteudo">
-                    <p>▶ Uniforme para eletricista</p>
-                </div>
+                <% } %>
             </div>
 
         </section>
@@ -245,53 +216,17 @@
             </div>
 
             <div class="bloco-conteudo tres-colunas">
-
+                <% for(let n = 0; n < dadosPermissaoDeTrabalho.medidasPreventivas.length; n++) {%>
                 <div class="linha-conteudo">
-                    <p>▶ Analisar o ambiente antes de iniciar o trabalho</p>
+                    <p>▶ <%= dadosPermissaoDeTrabalho.medidasPreventivas[n].descricao_medida_preventiva %></p>
                 </div>
-
-                <div class="linha-conteudo">
-                    <p>▶ Atender NR-10</p>
-                </div>
-
-                <div class="linha-conteudo">
-                    <p>▶ Condutor/operador de veículo deve estar habilitado</p>
-                </div>
-                
-                <div class="linha-conteudo">
-                    <p>▶ Desenergizar as redes elétricas</p>
-                </div>
-                
-                <div class="linha-conteudo">
-                    <p>▶ Desenergizar rede elétrica, tubulações, etc. próximas ao andaime</p>
-                </div>
-                
-                <div class="linha-conteudo">
-                    <p>▶ Dirigir em velocidade adequada às condições da via</p>
-                </div>
-                 
-                <div class="linha-conteudo">
-                    <p>▶ Empregados treinados para trabalhos em altura</p>
-                </div>
-                
-                <div class="linha-conteudo">
-                    <p>▶ Trabalhador que realizará desligamento e/ou ligação da parte elétrica deve estar legalmente habilitado</p>
-                </div> 
-                 
-                <div class="linha-conteudo">
-                    <p>▶ Utilizar linha de vida</p>
-                </div>
-                 
-                <div class="linha-conteudo">
-                    <p>▶ Verificar se condições climáticas são favoráveis para trabalho em altura em área externa</p>
-                </div>
-
+                <% } %>
             </div>
 
         </section>
 
         <div class="botao-emissao">
-            <button type="submit">Emitir Permissão de Trabalho</button>
+            <button type="submit">ELABORAR LÓGICA DE BOTÕES</button>
         </div>
 
     </div>     

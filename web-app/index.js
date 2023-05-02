@@ -70,8 +70,9 @@ app.post("/nova-pt", registrarNovaPT);
 app.get("/lista-pt", listarPT);
 app.post('/lista-pt', listarPTFiltradas)
 
-//Definição da rota da tela que exibe uma PT registrada no banco de dado
-app.get("/exibir-pt", exibirPT)
+
+//Definição da rota da tela que exibe uma PT registrada no banco de dados
+app.get("/exibir-pt/:codigo_pt", exibirPT)
 
 
 //Definição das rotas das telsa que tratam da administração dos usuários do sistema

@@ -83,8 +83,11 @@ const listarPTFiltradas = async(req, res) => {
     res.render('lista-pt', {listaDePTs: PTsFiltradas, usuario: req.session.userprofile})
 }
 
-const exibirPT = (req, res)=>{
-    res.render('exibir-pt')
+const exibirPT = async (req, res)=>{
+    const codDaPT = req.params.codigo_pt;
+    const permissaoDeTrabalho = new PermissaoDeTrabalho();
+    const dadosDaPT = await permissaoDeTrabalho.buscarPermissaoDeTrabalhoEspecifica(codDaPT);
+    res.render('exibir-pt', {dadosPermissaoDeTrabalho: dadosDaPT, usuario: req.session.userprofile})
 }
 
 module.exports = { novaPTView, registrarNovaPT, listarPT, exibirPT, listarPTFiltradas };
