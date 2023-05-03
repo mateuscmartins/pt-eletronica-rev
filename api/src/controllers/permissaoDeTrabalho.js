@@ -224,9 +224,35 @@ module.exports = {
 
         const {matricula, codigo_pt, data_ciencia} = req.body;
 
-        await connection('funcionarios_pt')
+        const atualizar = await connection('funcionarios_pt')
         .where({codigo_pt: codigo_pt, matricula: matricula})
-        .update({ciente: true, data_ciencia: data_ciencia})
+        .update({ciente: 'true', data_ciencia: data_ciencia})
+
+        const situacaoDaPT = await connection('funcionarios_pt')
+        .where({codigo_pt: codigo_pt})
+        .select("funcionarios_pt.ciente")
+
+        let profissionaisDeAcordo = 0;
+
+        for(let i =0; i < situacaoDaPT.length; i++){
+            if(situacaoDaPT[i].ciente === 'true'){
+                profissionaisDeAcordo++
+            }
+        }
+
+        if(profissionaisDeAcordo == situacaoDaPT.length){
+            //aprovada
+            await connection('permissao_trabalho')
+            .where({codigo_pt: codigo_pt})
+            .update({status_pt: 'aprovada'})
+        }
+
+        if(profissionaisDeAcordo > 0 && profissionaisDeAcordo < situacaoDaPT.length){
+            //parcialmente aprovada
+            await connection('permissao_trabalho')
+            .where({codigo_pt: codigo_pt})
+            .update({status_pt: 'parcialmente aprovada'})
+        }
 
         return res.status(200).send();
     }
