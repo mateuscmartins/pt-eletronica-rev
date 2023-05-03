@@ -218,6 +218,17 @@ module.exports = {
 
         return res.json(listaFiltrada);
             
+    },
+
+    async darCienciaEmPermissaoDeTrabalho(req, res){
+
+        const {matricula, codigo_pt, data_ciencia} = req.body;
+
+        await connection('funcionarios_pt')
+        .where({codigo_pt: codigo_pt, matricula: matricula})
+        .update({ciente: true, data_ciencia: data_ciencia})
+
+        return res.status(200).send();
     }
 
 }
