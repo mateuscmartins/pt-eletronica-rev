@@ -31,9 +31,14 @@ class PermissaoDeTrabalho{
         return dadosDaPermissaoDeTrabalho.data
     }
 
-    async listarPermissaoDeTrabalhoFiltradaPorProfissional(matricula){
+    async listarPermissaoDeTrabalhoPorProfissionalDeManutencao(matricula){
         const listaDePermissoesDeTrabalhoFiltradasPorProfissional = await api.get('permissao_trabalho/profissional/' + matricula);
         return listaDePermissoesDeTrabalhoFiltradasPorProfissional.data;
+    }
+
+    async listarPermissaoDeTrabalhoFiltradaPorProfissionalDeManutencao(dadosFiltro){
+        const listaDePermissoesDeTrabalhoFiltrada = await api.post('permissao_trabalho/filtrada/manutencao', dadosFiltro);
+        return listaDePermissoesDeTrabalhoFiltrada.data
     }
 }
 

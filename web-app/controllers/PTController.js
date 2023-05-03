@@ -69,7 +69,7 @@ const registrarNovaPT = (req, res)=>{
 const listarPT = async (req, res)=>{
     const permissaoDeTrabalho = new PermissaoDeTrabalho();
     const PTs = await permissaoDeTrabalho.listarTodasAsPermissoesDeTrabalho();
-    res.render('lista-pt', {listaDePTs: PTs, usuario: req.session.userprofile})
+    res.render('lista-pt', {listaDePTs: PTs, usuario: req.session})
 }
 
 
@@ -77,7 +77,7 @@ const listarPT = async (req, res)=>{
 const listarPTFiltradas = async(req, res) => {
     const permissaoDeTrabalho = new PermissaoDeTrabalho();
     const PTsFiltradas = await permissaoDeTrabalho.listarPermissaoDeTrabalhoFiltrada(req.body);
-    res.render('lista-pt', {listaDePTs: PTsFiltradas, usuario: req.session.userprofile})
+    res.render('lista-pt', {listaDePTs: PTsFiltradas, usuario: req.session})
 }
 
 //Função que lida com a requisição pra visualizar apenas os dados de uma PT específica
@@ -88,11 +88,18 @@ const exibirPT = async (req, res)=>{
     res.render('exibir-pt', {dadosPermissaoDeTrabalho: dadosDaPT, usuario: req.session.userprofile})
 }
 
-const listarPTFiltradasPorProfissional = async(req, res)=>{
+const listarPTPorProfissional = async(req, res)=>{
     const matriculaDoProfissional = req.session.userid;
     const permissaoDeTrabalho = new PermissaoDeTrabalho();
-    const PTsFiltradas = await permissaoDeTrabalho.listarPermissaoDeTrabalhoFiltradaPorProfissional(matriculaDoProfissional);
-    res.render('lista-pt', {listaDePTs: PTsFiltradas, usuario: req.session.userprofile})
+    const PTsFiltradas = await permissaoDeTrabalho.listarPermissaoDeTrabalhoPorProfissionalDeManutencao(matriculaDoProfissional);
+    res.render('lista-pt', {listaDePTs: PTsFiltradas, usuario: req.session})
 }
-//
-module.exports = { novaPTView, registrarNovaPT, listarPT, exibirPT, listarPTFiltradas, listarPTFiltradasPorProfissional };
+
+const listarPTFiltradaPorProfissionalDeManutencao = async(req, res)=>{
+    const permissaoDeTrabalho = new PermissaoDeTrabalho();
+    const PTsFiltradas = await permissaoDeTrabalho.listarPermissaoDeTrabalhoFiltradaPorProfissionalDeManutencao(req.body);
+    res.render('lista-pt', {listaDePTs: PTsFiltradas, usuario: req.session})
+}
+
+
+module.exports = { novaPTView, registrarNovaPT, listarPT, exibirPT, listarPTFiltradas, listarPTPorProfissional , listarPTFiltradaPorProfissionalDeManutencao};

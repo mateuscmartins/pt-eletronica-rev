@@ -17,7 +17,7 @@ const { loginView, loginSessao } = require('./controllers/loginController');
 //  registrarNovaPT - Rota que realiza o cadastro de uma nova PT no banco de dados 
 //  listaPT - Tela que exibe todas as PTs cadastradas no banco de dados
 //  exibirPT - Tela que exibe dados de uma PT cadastradas no sistema
-const { novaPTView, registrarNovaPT, listarPT, exibirPT, listarPTFiltradas, listarPTFiltradasPorProfissional } = require('./controllers/PTController');
+const { novaPTView, registrarNovaPT, listarPT, exibirPT, listarPTFiltradas, listarPTPorProfissional, listarPTFiltradaPorProfissionalDeManutencao } = require('./controllers/PTController');
 
 
 //Importação dos métodos do controller de emissão de PT
@@ -68,9 +68,9 @@ app.post("/nova-pt", registrarNovaPT);
 //  GET - Página com todas as PTs cadastradas no banco de dados
 //  POST - Página com as PTs filtradas conforme critérios do usuário
 app.get("/lista-pt", listarPT);
-app.post('/lista-pt', listarPTFiltradas)
-app.get("/lista-pt/manutencao", listarPTFiltradasPorProfissional);
-
+app.post('/lista-pt', listarPTFiltradas);
+app.get("/lista-pt/manutencao", listarPTPorProfissional);
+app.post('/lista-pt/manutencao', listarPTFiltradaPorProfissionalDeManutencao);
 
 //Definição da rota da tela que exibe uma PT registrada no banco de dados
 app.get("/exibir-pt/:codigo_pt", exibirPT)

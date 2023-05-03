@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <%= usuario %>
+    
     
     <div class="duas-colunas-lista">
 
@@ -20,6 +20,10 @@
         <aside class="container">
 
             <form action="" method="post">
+
+                <% if (usuario.userprofile === "encarregado-manutencao" || usuario.userprofile === "tecnico-manutencao") {%>
+                    <input type="text" name="matricula" value="<%= usuario.userid %>" style="display: none"/>
+                <% } %>
 
                 <h3>Número da PT</h3>
                 <input type="text" name="codigo_pt" />
@@ -69,9 +73,9 @@
 
                     <% for(let i = 0; i < listaDePTs.length; i++) {%>
                     <tr>
-                        <td><%= listaDePTs[i].codigo_pt %></td>
+                        <td><%= listaDePTs[i].PT %></td>
                         <td style="text-transform: capitalize;"><%= listaDePTs[i].status_pt %></td>
-                        <td><%= listaDePTs[i].ordem_servico %></td>
+                        <td><%= listaDePTs[i].codigo_os %></td>
                         <td><%= listaDePTs[i].descricao %></td>
                         <td class="celula-visualizar"><a href="">Visualizar</a></td>
                     </tr>

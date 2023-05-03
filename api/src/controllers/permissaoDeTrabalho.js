@@ -7,9 +7,9 @@ module.exports = {
         const permissoesDeTrabalho = 
             await connection('permissao_trabalho')
                 .select( 
-                    'permissao_trabalho.codigo_pt', 
+                    'permissao_trabalho.codigo_pt as PT', 
                     'permissao_trabalho.status_pt',
-                    'ordem_servico.ordem_servico', 
+                    'ordem_servico.ordem_servico as codigo_os', 
                     'ordem_servico.descricao')
                 .from('permissao_trabalho')
                 .leftJoin('ordem_servico', 'ordem_servico.ordem_servico', 'permissao_trabalho.ordem_servico')
@@ -143,7 +143,7 @@ module.exports = {
         const listaFiltrada = 
             await connection('permissao_trabalho')
             .select(
-                'permissao_trabalho.codigo_pt', 
+                'permissao_trabalho.codigo_pt as PT', 
                 'permissao_trabalho.status_pt',
                 'permissao_trabalho.ordem_servico as codigo_os', 
                 'ordem_servico.descricao')
@@ -161,9 +161,9 @@ module.exports = {
         const listaDePermissoesDeTrabalho = 
             await connection('funcionarios_pt')
             .select(
-                'funcionarios_pt.codigo_pt',
+                'funcionarios_pt.codigo_pt as PT',
                 'permissao_trabalho.status_pt',
-                'ordem_servico.ordem_servico', 
+                'ordem_servico.ordem_servico as codigo_os', 
                 'ordem_servico.descricao'
             )
             .from('funcionarios_pt')
@@ -172,6 +172,52 @@ module.exports = {
             .where("funcionarios_pt.matricula", "=", matriucla)
 
         return res.json(listaDePermissoesDeTrabalho);
+    },
+
+
+    async buscarPTsFiltradasPorProfissional(req, res) {
+        
+        const {matricula, codigo_pt, status_pt, data_emissao, ordem_servico, emissor} = req.body;
+
+        const filtros = {matricula: matricula};
+
+        if(codigo_pt){
+            filtros.PT = codigo_pt;
+        }
+
+        if(status_pt){
+            filtros.status_pt = status_pt;
+        }
+
+        if(data_emissao){
+            filtros.data_emissao = data_emissao;
+        }
+
+        if(ordem_servico){
+            filtros.codigo_os = ordem_servico;
+        }
+
+        if(emissor){
+            filtros.emissor = emissor;
+        }
+        
+        const listaFiltrada = 
+            await connection('funcionarios_pt')
+            .select(
+                'funcionarios_pt.codigo_pt as PT',
+                'permissao_trabalho.status_pt',
+                'permissao_trabalho.data_emissao',
+                'permissao_trabalho.emissor',
+                'ordem_servico.ordem_servico as codigo_os', 
+                'ordem_servico.descricao'
+            )
+            .from('funcionarios_pt')
+            .leftJoin('permissao_trabalho','permissao_trabalho.codigo_pt' ,'funcionarios_pt.codigo_pt')
+            .leftJoin('ordem_servico', 'ordem_servico.ordem_servico', 'permissao_trabalho.ordem_servico')
+            .where(filtros)
+
+        return res.json(listaFiltrada);
+            
     }
 
 }
