@@ -103,19 +103,19 @@
                 
                 <div class="quatro-colunas-profissionais">
                     <div class="linha-conteudo">
-                        <h3>Matrícula: </h3>
+                        <h3>Matrícula </h3>
                         <% for(let i = 0; i < dadosPermissaoDeTrabalho.funcionarios.length; i++ ){%>
                             <% if(dadosPermissaoDeTrabalho.funcionarios[i].funcao == "Encarregado"){%>
                             <p> <%= dadosPermissaoDeTrabalho.funcionarios[i].matricula %></p> 
                     </div>
     
                     <div class="linha-conteudo">
-                        <h3>Nome: </h3>
+                        <h3>Nome </h3>
                         <p><%= dadosPermissaoDeTrabalho.funcionarios[i].nome %></p> 
                     </div>
 
                     <div class="linha-conteudo">
-                        <h3>Anuência: </h3>
+                        <h3>Anuência </h3>
                         <% if(dadosPermissaoDeTrabalho.funcionarios[i].ciente == "true") {%>
                         <p>De acordo</p>
                         <% }else{ %>
@@ -226,7 +226,7 @@
 
         </section>
         
-        <% if (usuario.userprofile === "encarregado-manutencao" || usuario.userprofile === "tecnico-manutencao"){ %>
+        <% if ((usuario.userprofile === "encarregado-manutencao" || usuario.userprofile === "tecnico-manutencao") && dadosPermissaoDeTrabalho.status_pt != "aprovada"){ %>
         
         <form action="/exibir-pt/de-acordo" method="post">
 
@@ -246,6 +246,28 @@
 
         </form>
 
+        <%}%>
+
+        <% if (usuario.userprofile === "encarregado-manutencao" && dadosPermissaoDeTrabalho.status_pt === "aprovada"){ %>
+        
+            <form action="/exibir-pt/concluir" method="post">
+    
+                <input type="text" name="matricula" value="<%= usuario.userid %>" style="display: none"/>
+                <input type="text" name="codigo_pt" value="<%= dadosPermissaoDeTrabalho.PT %>" style="display: none"/>
+                <input type="text" name="tipoDeAlteracao" value="concluir" style="display: none"/>
+    
+                <div id="de-acordo">
+                    <label for="ciente">
+                        <input type="checkbox" name="concluido" value="true" required/> 
+                        Confirmo que todas as atividades referentes a <b>Ordem de Serviço <%= dadosPermissaoDeTrabalho.ordem_servico%></b> foram concluídas
+                    </label>
+                </div>
+                <div class="botao-emissao">
+                    <button type="submit">Concluir Permissão de Trabalho</button>
+                </div>
+    
+            </form>
+    
         <%}%>
 
     </div>     

@@ -107,5 +107,22 @@ const assinarPT = async(req, res) => {
     res.redirect("/lista-pt/manutencao");
 }
 
+const concluirPT = async(req, res) => {
+    const permissaoDeTrabalho = new PermissaoDeTrabalho();
+    await permissaoDeTrabalho.concluirPermissaoDeTrabalhoProfissionalDeManutencao(req.body);
+    res.redirect("/lista-pt/manutencao");
+}
 
-module.exports = { novaPTView, registrarNovaPT, listarPT, exibirPT, listarPTFiltradas, listarPTPorProfissional , listarPTFiltradaPorProfissionalDeManutencao, assinarPT};
+
+module.exports = 
+    { 
+        novaPTView, 
+        registrarNovaPT, 
+        listarPT, 
+        exibirPT, 
+        listarPTFiltradas, 
+        listarPTPorProfissional , 
+        listarPTFiltradaPorProfissionalDeManutencao, 
+        assinarPT,
+        concluirPT
+    };

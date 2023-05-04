@@ -257,7 +257,15 @@ module.exports = {
             }
 
             return res.status(200).send();
+        }
 
+
+        if(tipoDeAlteracao === "concluir"){
+            await connection('permissao_trabalho')
+            .where({codigo_pt: codigo_pt})
+            .update({status_pt: 'concluida', data_encerramento: data})
+
+            return res.status(200).send();
         }
 
         
