@@ -37,7 +37,7 @@ routes.post('/permissao_trabalho/filtrada', PTController.buscarPTsFiltradas);
 routes.get('/permissao_trabalho/:codigo_pt', PTController.lerPTEspecifica);
 routes.get('/permissao_trabalho/profissional/:matricula', PTController.buscarPTsPorProfissional);
 routes.post('/permissao_trabalho/filtrada/manutencao', PTController.buscarPTsFiltradasPorProfissional);
-routes.put('/permissao_trabalho', PTController.darCienciaEmPermissaoDeTrabalho);
+routes.put('/permissao_trabalho', PTController.alterarStatusDePermissaoDeTrabalho);
 
 
 //Exporta o modulo de rotas para ser utilizado por outros módulos

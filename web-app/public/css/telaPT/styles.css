@@ -170,3 +170,8 @@ textarea {
 .linha-conteudo p{
     padding-right: 5px;
 }
+
+#de-acordo{
+    text-align: center;
+    margin-bottom: 10px;
+}

@@ -85,7 +85,7 @@ const exibirPT = async (req, res)=>{
     const codDaPT = req.params.codigo_pt;
     const permissaoDeTrabalho = new PermissaoDeTrabalho();
     const dadosDaPT = await permissaoDeTrabalho.buscarPermissaoDeTrabalhoEspecifica(codDaPT);
-    res.render('exibir-pt', {dadosPermissaoDeTrabalho: dadosDaPT, usuario: req.session.userprofile})
+    res.render('exibir-pt', {dadosPermissaoDeTrabalho: dadosDaPT, usuario: req.session})
 }
 
 const listarPTPorProfissional = async(req, res)=>{
@@ -101,5 +101,11 @@ const listarPTFiltradaPorProfissionalDeManutencao = async(req, res)=>{
     res.render('lista-pt', {listaDePTs: PTsFiltradas, usuario: req.session})
 }
 
+const assinarPT = async(req, res) => {
+    const permissaoDeTrabalho = new PermissaoDeTrabalho();
+    await permissaoDeTrabalho.assinarPermissaoDeTrabalhoProfissionalDeManutencao(req.body);
+    res.redirect("/lista-pt/manutencao");
+}
 
-module.exports = { novaPTView, registrarNovaPT, listarPT, exibirPT, listarPTFiltradas, listarPTPorProfissional , listarPTFiltradaPorProfissionalDeManutencao};
+
+module.exports = { novaPTView, registrarNovaPT, listarPT, exibirPT, listarPTFiltradas, listarPTPorProfissional , listarPTFiltradaPorProfissionalDeManutencao, assinarPT};

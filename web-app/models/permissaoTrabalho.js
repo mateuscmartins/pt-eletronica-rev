@@ -40,6 +40,13 @@ class PermissaoDeTrabalho{
         const listaDePermissoesDeTrabalhoFiltrada = await api.post('permissao_trabalho/filtrada/manutencao', dadosFiltro);
         return listaDePermissoesDeTrabalhoFiltrada.data
     }
+
+    async assinarPermissaoDeTrabalhoProfissionalDeManutencao(dados){
+        const dadosParaEnvio = dados;
+        dadosParaEnvio.data = dataDeHoje;
+        console.log(dadosParaEnvio);
+        await api.put('permissao_trabalho', dadosParaEnvio);
+    }
 }
 
 module.exports = PermissaoDeTrabalho;

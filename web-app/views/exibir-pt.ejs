@@ -225,10 +225,28 @@
             </div>
 
         </section>
+        
+        <% if (usuario.userprofile === "encarregado-manutencao" || usuario.userprofile === "tecnico-manutencao"){ %>
+        
+        <form action="/exibir-pt/de-acordo" method="post">
 
-        <div class="botao-emissao">
-            <button type="submit">ELABORAR LÓGICA DE BOTÕES</button>
-        </div>
+            <input type="text" name="matricula" value="<%= usuario.userid %>" style="display: none"/>
+            <input type="text" name="codigo_pt" value="<%= dadosPermissaoDeTrabalho.PT %>" style="display: none"/>
+            <input type="text" name="tipoDeAlteracao" value="assinar" style="display: none"/>
+
+            <div id="de-acordo">
+                <label for="ciente">
+                    <input type="checkbox" name="ciente" value="true" required/> 
+                    Estou de acordo com as informações apresentadas para a Permissão de Trabalho
+                </label>
+            </div>
+            <div class="botao-emissao">
+                <button type="submit">Assinar Permissão de Trabalho</button>
+            </div>
+
+        </form>
+
+        <%}%>
 
     </div>     
 
