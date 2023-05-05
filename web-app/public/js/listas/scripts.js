@@ -9,4 +9,10 @@ $(document).ready(function() {
         url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json'
       }
     });
-  });
+
+    $('#botao-emissao').click(() => {
+      location.href = "http://localhost:3000/nova-pt";
+    })
+});
+
+

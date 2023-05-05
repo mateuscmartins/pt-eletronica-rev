@@ -123,7 +123,7 @@ textarea {
     margin-bottom: 5px;
 }
 
-.botao-emissao{
+.botao-emissao, .botao-cancelar{
     width: 100%;
 }
 
@@ -134,6 +134,22 @@ textarea {
     height: 40px;
     color: #FFF;
     background-color: #146C94;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 40px;
+}
+
+.botao-cancelar button{
+    width: 320px;
+    display: block;
+    margin: auto;
+    height: 40px;
+    color: #FFF;
+    background-color: #942332;
     border: 1px solid #000;
     border-radius: 5px;
     font-weight: 700;
@@ -173,5 +189,10 @@ textarea {
 
 #de-acordo{
     text-align: center;
+    margin-bottom: 10px;
+}
+
+#texto-cancelar{
+    width: 100%;
     margin-bottom: 10px;
 }

@@ -270,6 +270,24 @@
     
         <%}%>
 
+        <% if (usuario.userprofile === "seguranca-trabalho" && dadosPermissaoDeTrabalho.status_pt !== "concluida"){ %>
+        
+            <form action="/exibir-pt/cancelar" method="post">
+    
+                <input type="text" name="matricula" value="<%= usuario.userid %>" style="display: none"/>
+                <input type="text" name="codigo_pt" value="<%= dadosPermissaoDeTrabalho.PT %>" style="display: none"/>
+                <input type="text" name="tipoDeAlteracao" value="cancelar" style="display: none"/>
+    
+                <textarea id="texto-cancelar" name="motivo-cancelamento" placeholder='Descreva o motivo do cancelamento da Permissão de Trabalho' required></textarea>
+                
+                <div class="botao-cancelar">
+                    <button type="submit">Cancelar Permissão de Trabalho</button>
+                </div>
+    
+            </form>
+    
+        <%}%>
+
     </div>     
 
     <script src="/js/novaPT/scripts.js"></script>
