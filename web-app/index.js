@@ -17,7 +17,7 @@ const { loginView, loginSessao } = require('./controllers/loginController');
 //  registrarNovaPT - Rota que realiza o cadastro de uma nova PT no banco de dados 
 //  listaPT - Tela que exibe todas as PTs cadastradas no banco de dados
 //  exibirPT - Tela que exibe dados de uma PT cadastradas no sistema
-const { novaPTView, registrarNovaPT, listarPT, exibirPT, listarPTFiltradas, listarPTPorProfissional, listarPTFiltradaPorProfissionalDeManutencao, assinarPT, concluirPT } = require('./controllers/PTController');
+const { novaPTView, registrarNovaPT, listarPT, exibirPT, listarPTFiltradas, listarPTPorProfissional, listarPTFiltradaPorProfissionalDeManutencao, assinarPT, concluirPT, cancelarPT } = require('./controllers/PTController');
 
 
 //Importação dos métodos do controller de emissão de PT
@@ -76,6 +76,7 @@ app.post('/lista-pt/manutencao', listarPTFiltradaPorProfissionalDeManutencao);
 app.get("/exibir-pt/:codigo_pt", exibirPT)
 app.post("/exibir-pt/de-acordo", assinarPT)
 app.post("/exibir-pt/concluir", concluirPT)
+app.post("/exibir-pt/cancelar", cancelarPT)
 
 
 //Definição das rotas das telsa que tratam da administração dos usuários do sistema

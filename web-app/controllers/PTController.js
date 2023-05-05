@@ -113,6 +113,10 @@ const concluirPT = async(req, res) => {
     res.redirect("/lista-pt/manutencao");
 }
 
+const cancelarPT = async(req, res) => {
+    console.log(req.body);
+}
+
 
 module.exports = 
     { 
@@ -124,5 +128,6 @@ module.exports =
         listarPTPorProfissional , 
         listarPTFiltradaPorProfissionalDeManutencao, 
         assinarPT,
-        concluirPT
+        concluirPT,
+        cancelarPT
     };
