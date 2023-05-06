@@ -111,7 +111,7 @@ module.exports = {
         permissaoDeTrabalho.medidasPreventivas = listaDeMedidasPreventivas;
 
         
-        if(permissaoDeTrabalho.status_pt = "cancelada"){
+        if(permissaoDeTrabalho.status_pt === "cancelada"){
             const dadosCancelamento = 
             await connection('cancelamento_pt')
             .select(

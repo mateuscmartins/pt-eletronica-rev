@@ -13,17 +13,49 @@
      
     <div class="container">
        <h1>Permissão de Trabalho: <%= dadosPermissaoDeTrabalho.PT %> </h1>
-       
-       <section>
-        <p>Status: <span class='status' style="text-transform: capitalize;"><%= dadosPermissaoDeTrabalho.status_pt %></span></p>
-       </section>
 
        <section id="autor-pt">
             <p>Autor: <span> <%= dadosPermissaoDeTrabalho.nome_emissor %></span></p>
             <p>Matrícula: <span> <%= dadosPermissaoDeTrabalho.emissor %> </span></p>
             <p>Função: <span><%= dadosPermissaoDeTrabalho.funcao_emissor %></span></p>
+        </section>
+       
+       <section>
+        <p>Status: <span class='status' style="text-transform: capitalize;"><%= dadosPermissaoDeTrabalho.status_pt %></span></p>
        </section>
 
+       <% if(dadosPermissaoDeTrabalho.status_pt === "cancelada"){ %>
+
+        <section id="dados-cancelamento">
+
+            <div class="titulo-bloco-conteudo">
+                <h2>Informações do cancelamento</h2>
+            </div>
+
+            <div class="bloco-conteudo">
+
+                <div class="duas-colunas">
+                    <div class="linha-conteudo">
+                        <h3>Profissional</h3>
+                        <p><%= dadosPermissaoDeTrabalho.infosDeCancelamento.nome %></p>
+                    </div>
+
+                    <div class="linha-conteudo">
+                        <h3>Matrícula</h3>
+                        <p><%= dadosPermissaoDeTrabalho.infosDeCancelamento.matricula %></p>
+                    </div>
+                </div>
+
+                <div class="linha-conteudo">
+                    <h3>Justificativa</h3>
+                    <p><%= dadosPermissaoDeTrabalho.infosDeCancelamento.motivo_cancelamento %></p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <% } %>
 
 
        <section id="ordem-servico">
@@ -270,7 +302,7 @@
     
         <%}%>
 
-        <% if (usuario.userprofile === "seguranca-trabalho" && dadosPermissaoDeTrabalho.status_pt !== "concluida"){ %>
+        <% if (usuario.userprofile === "seguranca-trabalho" && (dadosPermissaoDeTrabalho.status_pt !== "concluida" && dadosPermissaoDeTrabalho.status_pt !== "cancelada")){ %>
         
             <form action="/exibir-pt/cancelar" method="post">
     
