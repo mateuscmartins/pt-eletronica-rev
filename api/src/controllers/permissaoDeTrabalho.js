@@ -110,6 +110,25 @@ module.exports = {
         permissaoDeTrabalho.equipamentos = listaDeEquipamentos;
         permissaoDeTrabalho.medidasPreventivas = listaDeMedidasPreventivas;
 
+        
+        if(permissaoDeTrabalho.status_pt = "cancelada"){
+            const dadosCancelamento = 
+            await connection('cancelamento_pt')
+            .select(
+                'cancelamento_pt.motivo_cancelamento',
+                'cancelamento_pt.matricula',
+                'usuarios.nome'
+            )
+            .from('cancelamento_pt')
+            .leftJoin('usuarios', 'usuarios.matricula', 'cancelamento_pt.matricula')
+            .where('cancelamento_pt.codigo_pt', '=', codigo_pt)
+            .first()
+            
+            permissaoDeTrabalho.infosDeCancelamento = dadosCancelamento;
+        }
+
+        
+
         return res.json(permissaoDeTrabalho);
     },
 
