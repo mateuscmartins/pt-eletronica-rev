@@ -268,6 +268,24 @@ module.exports = {
             return res.status(200).send();
         }
 
+        if(tipoDeAlteracao === "cancelar"){
+
+            const { motivo_cancelamento } = req.body;
+
+            await connection('permissao_trabalho')
+            .where({codigo_pt: codigo_pt})
+            .update({status_pt: 'cancelada', data_encerramento: data})
+
+            await connection('cancelamento_pt')
+            .insert({
+                codigo_pt: codigo_pt,
+                motivo_cancelamento: motivo_cancelamento,
+                matricula: matricula
+            })
+            
+            return res.status(200).send();
+        }
+
         
     }
 
