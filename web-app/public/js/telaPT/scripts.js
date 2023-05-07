@@ -35,7 +35,7 @@ $(document).ready(()=>{
         $('#secao-profissionais').append(novoFuncionario);
     })
 
-    $('.matricula').on('blur', function() {
+    $(document).on('blur', '.matricula', function() {
         // busca o objeto correspondente à matrícula digitada
         var matriculaDigitada = $(this).val();
         var funcionarioEncontrado = funcionarios.find(function(funcionario) {
