@@ -1,3 +1,4 @@
+const Usuario = require('../models/usuario')
 const OrdemServico = require('../models/ordemServico');
 const PermissaoDeTrabalho = require('../models/permissaoTrabalho');
 const Funcionario = require("../models/funcionario");
@@ -8,13 +9,11 @@ const MedidaPreventiva = require("../models/medidaPreventiva");
 
 
 //Função que lida com a view de cadastramento da permissão de trabalho no banco de dados
-const novaPTView = (req, res)=>{
+const novaPTView = async (req, res)=>{
     
-    var profissionais = [
-        { matricula: "123", nome: "João" },
-        { matricula: "456", nome: "Maria" },
-        { matricula: "789", nome: "Pedro" }
-    ];
+
+    const novoUsuario = new Usuario();
+    const profissionais = await novoUsuario.listarTodosOsUsuarios();
 
     res.render('nova-pt',{listaDeProfissionais: profissionais});
 };

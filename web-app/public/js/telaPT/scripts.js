@@ -44,6 +44,8 @@ $(document).ready(()=>{
         // se encontrar um funcionario, preenche o campo de nome com o valor correspondente
         if (funcionarioEncontrado) {
             $(this).parent().next('.linha-conteudo').find('.nome-profissional').val(funcionarioEncontrado.nome);
+            $(this).parent().next('.linha-conteudo').find('.nome-profissional').css('border-color', 'black');
+            $(this).css('border-color', 'black');
         } else {
           // se não encontrar, limpa o campo de nome
           $(this).parent().next('.linha-conteudo').find('.nome-profissional').val('Profissional não encontrado');
