@@ -9,7 +9,14 @@ const MedidaPreventiva = require("../models/medidaPreventiva");
 
 //Função que lida com a view de cadastramento da permissão de trabalho no banco de dados
 const novaPTView = (req, res)=>{
-    res.render('nova-pt',{});
+    
+    var profissionais = [
+        { matricula: "123", nome: "João" },
+        { matricula: "456", nome: "Maria" },
+        { matricula: "789", nome: "Pedro" }
+    ];
+
+    res.render('nova-pt',{listaDeProfissionais: profissionais});
 };
 
 

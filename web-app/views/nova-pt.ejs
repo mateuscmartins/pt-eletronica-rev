@@ -96,12 +96,12 @@
                     <div class="duas-colunas-profissionais">
                         <div class="linha-conteudo">
                             <h3>Matrícula: </h3>
-                            <input type="text" name="matricula" placeholder='Matrícula do encarregado' required></input> 
+                            <input type="text" name="matricula" placeholder='Matrícula do encarregado' class="matricula" required></input> 
                         </div>
         
                         <div class="linha-conteudo">
                             <h3>Nome: </h3>
-                            <input  type="text" name="nome" placeholder='Nome do encarregado' required></input> 
+                            <input  type="text" name="nome" placeholder='Nome do encarregado' class="nome-profissional"></input> 
                         </div>
                     </div>
 
@@ -112,12 +112,12 @@
                         <div class="duas-colunas-profissionais">
                             <div class="linha-conteudo">
                                 <h3>Matrícula: </h3>
-                                <input type="text" name="matricula" placeholder='Matrícula do profissional' required></input> 
+                                <input type="text" name="matricula" placeholder='Matrícula do profissional' class="matricula"required></input> 
                             </div>
             
                             <div class="linha-conteudo">
                                 <h3>Nome: </h3>
-                                <input  type="text" name="nome" placeholder='Nome do profissional' required></input> 
+                                <input  type="text" name="nome" placeholder='Nome do profissional' class="nome-profissional" readonly></input> 
                             </div>
                         </div>
                     </div>
@@ -1167,9 +1167,17 @@
 
         </form>
 
-    </div>     
+    </div>
+
+    <script>
+
+        var funcionarios = <%- JSON.stringify(listaDeProfissionais) %>;
+
+    </script>
 
     <script src="/js/telaPT/scripts.js"></script>
+
+        
 
 </body>
 </html>
