@@ -5,11 +5,11 @@ const { api } = require('../services/api');
 class PermissaoDeTrabalho{
 
 
-    async cadastrarPermissaoDeTrabalho(dadosPT){
+    async cadastrarPermissaoDeTrabalho(dadosPT, matricula){
         
         const codigo_pt =  await connection('permissao_trabalho').insert({
             ordem_servico: dadosPT.ordem_servico,
-            emissor: "TROCAR",
+            emissor: matricula,
             data_emissao: dataDeHoje,
         })
 

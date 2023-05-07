@@ -23,6 +23,7 @@ const novaPTView = async (req, res)=>{
 const registrarNovaPT = (req, res)=>{
     
     const dados = req.body;
+    const matriculaDoProfissionalSST = req.session.userid;
 
     async function cadastrarOS(){
         const ordemDeServico = new OrdemServico;
@@ -31,7 +32,7 @@ const registrarNovaPT = (req, res)=>{
 
     async function cadastrarPT(){
         const permissaoDeTrabalho = new PermissaoDeTrabalho;
-        let codigoPT = await permissaoDeTrabalho.cadastrarPermissaoDeTrabalho(dados);
+        let codigoPT = await permissaoDeTrabalho.cadastrarPermissaoDeTrabalho(dados, matriculaDoProfissionalSST);
         return codigoPT;
     }
 
