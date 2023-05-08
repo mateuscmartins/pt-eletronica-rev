@@ -23,6 +23,7 @@ routes.post('/sessao', SessaoController.criar);
 routes.post('/usuario', UsuariosController.criar);
 routes.post('/usuario/filtrado', UsuariosController.buscarUsuariosFiltrados);
 routes.get('/usuario', UsuariosController.lerTodos);
+routes.get('/usuario/:matricula', UsuariosController.lerUsuarioEspecífico);
 //routes.delete('/usuario/:matricula', UsuariosController.delete)
 
 

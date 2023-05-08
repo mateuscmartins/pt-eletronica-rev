@@ -72,6 +72,26 @@ module.exports = {
 
         return res.json(listaFiltrada);
             
+    },
+
+    async lerUsuarioEspecífico(req, res){
+
+        const matricula = req.params.matricula;
+
+        const dadosUsuarios = 
+        await connection('usuarios')
+        .select(
+            'matricula',
+            'nome',
+            'funcao',
+            'empresa',
+            'perfil'
+        )
+        .where('matricula', '=', matricula)
+        .first()
+
+        return res.json(dadosUsuarios);
+
     }
 
 
