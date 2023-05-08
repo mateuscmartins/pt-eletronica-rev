@@ -13,6 +13,10 @@ $(document).ready(function() {
     $('#botao-emissao').click(() => {
       location.href = "http://localhost:3000/nova-pt";
     })
+
+    $('#botao-usuario').click(() => {
+      location.href = "http://localhost:3000/novo-usuario";
+    })
 });
 
 
