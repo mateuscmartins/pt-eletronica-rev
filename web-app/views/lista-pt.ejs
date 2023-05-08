@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Lista de Permissões de Trabalho</title>
     <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/telaPT/styles.css">
     <link rel="stylesheet" href="/css/listas/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
@@ -13,7 +15,16 @@
 </head>
 <body>
 
-    
+    <div class="topnav">
+
+        <a href="http://localhost:3000/">Log Out</a>
+        <% if (usuario.userprofile === "encarregado-manutencao" || usuario.userprofile === "tecnico-manutencao") {%>
+            <a href="http://localhost:3000/lista-pt/manutencao">Página incial</a>
+        <% }else { %>
+            <a href="http://localhost:3000/lista-pt">Página incial</a>
+        <% } %>
+
+    </div>
     
     <div class="duas-colunas-lista">
 
@@ -95,6 +106,7 @@
 
 
     <script src="/js/listas/scripts.js"></script>
+    <script src="/js/telaPT/scripts.js"></script>
     
 </body>
 </html>
