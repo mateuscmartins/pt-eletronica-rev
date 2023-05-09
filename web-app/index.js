@@ -87,7 +87,7 @@ app.post("/exibir-pt/cancelar", cancelarPT)
 //  POST - registrarUsuario - rota para realizar a comunicação do sistema com a API
 app.get("/lista-usuarios", listaUsuarios);
 app.post('/lista-usuarios', listarUsuariosFiltrados)
-app.get("/exibir-usuario", exibirUsuario);
+app.get("/exibir-usuario/:matricula", exibirUsuario);
 app.get("/novo-usuario", criarUsuario);
 app.post("/novo-usuario", registrarUsuario);
 

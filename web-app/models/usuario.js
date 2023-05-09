@@ -34,6 +34,11 @@ class Usuario{
         const listaDeFuncoes = await api.get('lista-funcoes');
         return listaDeFuncoes.data
     }
+
+    async exibirUsuarioEspecifico(matricula){
+        const dadosDoUsuario = await api.get('usuario/' + matricula);
+        return dadosDoUsuario.data
+    }
 }
 
 

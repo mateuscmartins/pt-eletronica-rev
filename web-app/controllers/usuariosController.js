@@ -8,8 +8,13 @@ const listaUsuarios = async (req, res)=>{
     res.render('lista-usuarios',{listaDeUsuarios: lista, usuario: req.session.userprofile, teste:"teste", listaDeFuncoes: listaFuncoes});
 };
 
-const exibirUsuario = (req, res)=>{    
-    res.render('usuario',{});
+const exibirUsuario = async (req, res)=>{
+        
+    const matriculaDoFuncionario = req.params.matricula;
+    const usuario = new Usuario();
+    const dadosDoFuncionario = await usuario.exibirUsuarioEspecifico(matriculaDoFuncionario);
+
+    res.render('usuario',{dadosUsuario: dadosDoFuncionario});
 };
 
 const criarUsuario = (req, res)=>{
