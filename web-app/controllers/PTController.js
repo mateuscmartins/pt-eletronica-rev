@@ -121,7 +121,9 @@ const concluirPT = async(req, res) => {
 }
 
 const cancelarPT = async(req, res) => {
-    console.log(req.body);
+    const permissaoDeTrabalho = new PermissaoDeTrabalho();
+    await permissaoDeTrabalho.cancelarPermissaoDeTrabalhoProfissionalDeManutencao(req.body);
+    res.redirect("/lista-pt");
 }
 
 

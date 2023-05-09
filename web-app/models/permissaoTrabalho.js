@@ -53,6 +53,11 @@ class PermissaoDeTrabalho{
         dadosParaEnvio.data = dataDeHoje;
         await api.put('permissao_trabalho', dadosParaEnvio);
     }
+
+    async cancelarPermissaoDeTrabalhoProfissionalDeManutencao(dados){
+        const dadosParaEnvio = dados;
+        await api.put('permissao_trabalho', dadosParaEnvio);
+    }
 }
 
 module.exports = PermissaoDeTrabalho;
