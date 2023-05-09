@@ -24,7 +24,7 @@ routes.post('/usuario', UsuariosController.criar);
 routes.post('/usuario/filtrado', UsuariosController.buscarUsuariosFiltrados);
 routes.get('/usuario', UsuariosController.lerTodos);
 routes.get('/usuario/:matricula', UsuariosController.lerUsuarioEspecífico);
-//routes.delete('/usuario/:matricula', UsuariosController.delete)
+routes.put('/usuario', UsuariosController.editarUsuario);
 
 
 //Rota para enviar a lista de funcoes cadastradas no banco de dados

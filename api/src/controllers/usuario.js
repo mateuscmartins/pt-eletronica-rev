@@ -92,18 +92,22 @@ module.exports = {
 
         return res.json(dadosUsuarios);
 
-    }
-
-
-    /*//Excluindo usuario do banco de dados
-    async delete(request, response){
-        
-        //Recuperando a matricula enviada como parametro
-        const { matricula } = request.params;
-        console.log(matricula)
-        await connection('usuarios').where('matricula', matricula).del();
-        
-        return response.status(204).send();
+    },
     
-    },*/
+    async editarUsuario(req, res){
+        
+        const { matricula, nome, funcao, empresa, perfil } = req.body;
+
+        await connection('usuarios')
+        .where({matricula: matricula})
+        .update({
+            nome: nome,
+            funcao: funcao,
+            empresa: empresa,
+            perfil: perfil
+        });
+
+        return res.status(200).send();
+    
+    }
 }

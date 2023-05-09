@@ -39,6 +39,11 @@ class Usuario{
         const dadosDoUsuario = await api.get('usuario/' + matricula);
         return dadosDoUsuario.data
     }
+
+    async editarDadosDeUsuario(dados){
+        const dadosParaEnvio = dados;
+        await api.put('usuario', dadosParaEnvio);
+    }
 }
 
 

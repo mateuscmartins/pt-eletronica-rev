@@ -51,7 +51,6 @@ class PermissaoDeTrabalho{
     async concluirPermissaoDeTrabalhoProfissionalDeManutencao(dados){
         const dadosParaEnvio = dados;
         dadosParaEnvio.data = dataDeHoje;
-        console.log(dadosParaEnvio);
         await api.put('permissao_trabalho', dadosParaEnvio);
     }
 }

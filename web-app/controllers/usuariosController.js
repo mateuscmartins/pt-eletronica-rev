@@ -9,7 +9,7 @@ const listaUsuarios = async (req, res)=>{
 };
 
 const exibirUsuario = async (req, res)=>{
-        
+
     const matriculaDoFuncionario = req.params.matricula;
     const usuario = new Usuario();
     const dadosDoFuncionario = await usuario.exibirUsuarioEspecifico(matriculaDoFuncionario);
@@ -36,4 +36,10 @@ const listarUsuariosFiltrados = async(req, res) => {
     res.render('lista-usuarios', {listaDeUsuarios: usuariosFiltrados, usuario: req.session.userprofile, listaDeFuncoes: listaFuncoes})
 }
 
-module.exports = { listaUsuarios, exibirUsuario, criarUsuario, registrarUsuario, listarUsuariosFiltrados};
+const editarUsuario = async(req, res) => {
+    const usuario = new Usuario();
+    await usuario.editarDadosDeUsuario(req.body);
+    res.redirect("/lista-usuarios")
+}
+
+module.exports = { listaUsuarios, exibirUsuario, criarUsuario, registrarUsuario, listarUsuariosFiltrados, editarUsuario};
