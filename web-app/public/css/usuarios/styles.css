@@ -3,6 +3,11 @@
     background-color: #333;
 }
 
+.topnav img{
+    margin-left: 20px;
+    width: 80px;
+}
+
 .topnav a {
     float: right;
     display: block;
