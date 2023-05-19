@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('#tabela').DataTable({
+      responsive: true,
       searching: false,
       ordering:  true,
       "paging": true,
@@ -11,12 +12,17 @@ $(document).ready(function() {
     });
 
     $('#botao-emissao').click(() => {
-      location.href = "http://localhost:3000/nova-pt";
+      location.href = "http://192.168.0.116:3000/nova-pt";
     })
 
     $('#botao-usuario').click(() => {
-      location.href = "http://localhost:3000/novo-usuario";
+      location.href = "http://192.168.0.116:3000/novo-usuario";
     })
+
+    $('.botao-filtros').click(()=>{
+      $('aside').toggle();
+    })
+
 });
 
 

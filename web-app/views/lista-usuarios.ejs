@@ -2,13 +2,14 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/listas/styles.css">
     <link rel="stylesheet" href="/css/usuarios/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+    
 
     <title>Lista de Usuários</title>
 </head>
@@ -18,15 +19,20 @@
 
         <span><img src="/image/logo_pt_eletronica.png" alt=""></span>
 
-        <a href="http://localhost:3000/">Log Out</a>
+        <a href="http://192.168.0.116:3000/">Log Out</a>
     
-        <a href="http://localhost:3000/lista-usuarios">Página incial</a>
+        <a href="http://192.168.0.116:3000/lista-usuarios">Página incial</a>
 
     </div>
 
+    <div class="linha-botao-filtro">
+        <span style="font-size:30px;cursor:pointer" class="botao-filtros">&#9776; FILTROS</span>
+    </div>
+    
+
     <div class="duas-colunas-lista">
 
-        <aside class="container">
+        <aside class="container" div="menu-filtro">
 
             <form action="" method="post">
 
@@ -58,7 +64,7 @@
 
                 <div class="botao">
                     <button type="submit">Buscar</button>
-                    <button onclick="location.href='http://localhost:3000/lista-usuario'">Limpar</button>
+                    <button onclick="location.href='http://192.168.0.116:3000/lista-usuario'">Limpar</button>
                 </div>
 
 
@@ -97,7 +103,7 @@
                         <th><%= listaDeUsuarios[i].funcao %></th>
                         <th><%= listaDeUsuarios[i].empresa %></th>
                         <th><%= listaDeUsuarios[i].perfil %></th>
-                        <th><a href="http://localhost:3000/exibir-usuario/<%= listaDeUsuarios[i].matricula %>">Visualizar</a></th>
+                        <th><a href="http://192.168.0.116:3000/exibir-usuario/<%= listaDeUsuarios[i].matricula %>">Visualizar</a></th>
                     </tr>
                     <% } %>
 

@@ -1,5 +1,7 @@
 html, body{
     height: 100%;
+    width: fit-content;
+    
 }
 
 .duas-colunas-lista{
@@ -8,10 +10,15 @@ html, body{
     height: 100%;
 }
 
+.botao-filtros{
+    display: none;
+}
+
 
 .container{
     margin: 0px 0px;
 }
+
 
 h1{
     margin-bottom: 30px;
@@ -107,4 +114,31 @@ table, th, td {
     color: #555;
     float: none;
 }
-  
+
+
+@media only screen and (max-width: 500px) {
+    .linha-botao-filtro{
+        background-color: #146C94;
+    }
+
+    .botao-filtros{
+        display: inline-block;
+        color: #FFF;
+    }
+
+    .duas-colunas-lista{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        height: 100%;
+    }
+
+    aside.container{
+        display: none;
+        padding-bottom: 10px;
+    }
+    
+    .container{
+        width: 100%;
+    }
+  }
