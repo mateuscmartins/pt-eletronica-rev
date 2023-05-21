@@ -148,7 +148,7 @@
                     <div class="linha-conteudo">
                         <h3>Matrícula </h3>
                         <% for(let i = 0; i < dadosPermissaoDeTrabalho.funcionarios.length; i++ ){%>
-                            <% if(dadosPermissaoDeTrabalho.funcionarios[i].funcao == "Encarregado"){%>
+                            <% if(dadosPermissaoDeTrabalho.funcionarios[i].perfil == "encarregado-manutencao"){%>
                             <p> <%= dadosPermissaoDeTrabalho.funcionarios[i].matricula %></p> 
                     </div>
     
@@ -166,7 +166,7 @@
                         <% } %>
                     </div>
 
-                    <div class="linha-conteudo">
+                    <div class="linha-conteudo empresa">
                         <h3>Empresa</h3>
                         <p><%= dadosPermissaoDeTrabalho.funcionarios[i].empresa %></p>
                         <% }} %>
@@ -183,10 +183,10 @@
                         <th><h3>Nome</h3></th>
                         <th><h3>Função</h3></th>
                         <th><h3>Anuência</h3></th>
-                        <th><h3>Empresa</h3></th>
+                        <th class="empresa"><h3>Empresa</h3></th>
                     </tr>
                     <% for(let j = 0; j < dadosPermissaoDeTrabalho.funcionarios.length; j++ ) {%>
-                        <% if(dadosPermissaoDeTrabalho.funcionarios[j].funcao != "Encarregado"){%>
+                        <% if(dadosPermissaoDeTrabalho.funcionarios[j].perfil != "encarregado-manutencao"){%>
                     <tr>
                         <td><p><%= dadosPermissaoDeTrabalho.funcionarios[j].matricula %></p></td>
                         <td><p><%= dadosPermissaoDeTrabalho.funcionarios[j].nome %></p></td>
@@ -196,7 +196,7 @@
                         <%}else{%>
                         <td><p style="color: red">FALTA ANUÊNCIA</p></td>
                         <%}%>
-                        <td><p><%= dadosPermissaoDeTrabalho.funcionarios[j].empresa %></p></td>
+                        <td class="empresa"><p><%= dadosPermissaoDeTrabalho.funcionarios[j].empresa %></p></td>
                     </tr>
                     <%}}%>
                 </table>

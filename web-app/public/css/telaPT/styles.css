@@ -233,3 +233,35 @@ textarea {
     margin-bottom: 10px;
 }
 
+@media only screen and (max-width: 500px) {
+    .duas-colunas{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .tres-colunas{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .quatro-colunas-profissionais{
+        grid-template-columns: 1fr 1fr 1fr;
+        text-align: center;
+    }
+
+    .empresa{
+        display: none;
+    }
+
+    .tabela-profissionais{
+        text-align: center;
+    }
+
+    h3{
+        font-size: small;
+    }
+
+    p{
+        font-size: medium;
+    }
+}
