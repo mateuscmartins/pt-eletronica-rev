@@ -10,12 +10,11 @@ const MedidaPreventiva = require("../models/medidaPreventiva");
 
 //Função que lida com a view de cadastramento da permissão de trabalho no banco de dados
 const novaPTView = async (req, res)=>{
-    
 
     const novoUsuario = new Usuario();
     const profissionais = await novoUsuario.listarTodosOsUsuarios();
 
-    res.render('nova-pt',{listaDeProfissionais: profissionais});
+    res.render('nova-pt',{listaDeProfissionais: profissionais, usuario: req.session});
 };
 
 

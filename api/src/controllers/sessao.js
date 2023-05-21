@@ -12,7 +12,8 @@ module.exports = {
             .select(
                 "matricula",
                 "nome",
-                "perfil")
+                "perfil",
+                "funcao")
             .where({
                 "matricula": matricula,
                 "senha": senha

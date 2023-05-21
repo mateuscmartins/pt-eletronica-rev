@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Lista de Permissões de Trabalho</title>
     <link rel="stylesheet" href="/css/global.css">
@@ -16,14 +17,20 @@
 
     <div class="topnav">
 
-        <a href="http://localhost:3000/">Log Out</a>
+        <span><img src="/image/logo_pt_eletronica.png" alt=""></span>
+
+        <a href="http://192.168.0.116:3000/">Log Out</a>
         
         <% if (usuario.userprofile === "encarregado-manutencao" || usuario.userprofile === "tecnico-manutencao") {%>
-            <a href="http://localhost:3000/lista-pt/manutencao">Página incial</a>
+            <a href="http://192.168.0.116:3000//lista-pt/manutencao">Página incial</a>
         <% }else { %>
-            <a href="http://localhost:3000/lista-pt">Página incial</a>
+            <a href="http://192.168.0.116:3000//lista-pt">Página incial</a>
         <% } %>
 
+    </div>
+
+    <div class="linha-botao-filtro">
+        <span style="font-size:30px;cursor:pointer" class="botao-filtros">&#9776; FILTROS</span>
     </div>
     
     <div class="duas-colunas-lista">

@@ -12,7 +12,7 @@ $(document).ready(function() {
     });
 
     $('#botao-emissao').click(() => {
-      location.href = "http://192.168.0.116:3000/nova-pt";
+      location.href = "http://localhost:3000/nova-pt";
     })
 
     $('#botao-usuario').click(() => {

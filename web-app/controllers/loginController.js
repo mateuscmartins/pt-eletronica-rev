@@ -17,6 +17,7 @@ const loginSessao = (req, res)=>{
         req.session.userid = resultado.data.matricula;
         req.session.user = resultado.data.nome;
         req.session.userprofile = resultado.data.perfil;
+        req.session.userfunction = resultado.data.funcao;
         
         if(req.session.userprofile === 'adm'){
             res.redirect('/lista-usuarios')
